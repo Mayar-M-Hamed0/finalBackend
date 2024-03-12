@@ -26,10 +26,9 @@ class usersController extends Controller
         $validator = Validator::make($request->all(), [
             "name"=>"required|min:3",
             "email" => "required|email|unique:users,email",
-            "phone"=>"required|min:11",
-         
+            'phone' => ['required', 'regex:/^01[0-2]{1}[0-9]{8}$/'],
             "image" => 'required','max:1000','mimes:png,jpg,jpeg',
-            "password"=>"required|min:8"
+            'password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'],
         ]);
         if($validator->fails()){
             return response($validator->errors()->all());
@@ -68,8 +67,8 @@ class usersController extends Controller
    
     public function destroy(User $user)
     {
-        //
+     
           $user->delete();
-        return response("Deleted", 204);
+        return response("delete", 204);
     }
 }
