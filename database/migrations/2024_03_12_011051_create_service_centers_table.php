@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('service_centers', function (Blueprint $table) {
             $table->id();
             $table->string('car_name');
+            $table->string('name');
+            $table->integer('phone');
+            $table->float('rating');
+            $table->string('working_days');
+            $table->string('working_hours');
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
