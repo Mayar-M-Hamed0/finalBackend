@@ -7,81 +7,76 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Auth;
 class usersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+// trait api 
+
+use traitapi\apitrait;
+
+
     public function index()
     {
-        //
-         return User::all();        
+        
+        $user = User::all();
+   
+         return $this->apiresponse($user,"ok",200);      
 
-    // }
+
         }
         
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+      
         $validator = Validator::make($request->all(), [
             "name"=>"required|min:3",
-            // "lname"=>"required|min:3",
             "email" => "required|email|unique:users,email",
-            "phone"=>"required|min:11",
-            // "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
-            "password"=>"required|min:8"
+            'phone' => ['required', 'regex:/^01[0-2]{1}[0-9]{8}$/'],
+            "image" => 'required','max:1000','mimes:png,jpg,jpeg',
+            'password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'],
         ]);
         if($validator->fails()){
             return response($validator->errors()->all());
         }
         $user = User::create($request->all());
-        return response($user, 201);
+        return $this->apiresponse($user,"ok",201);  
       
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(User $user)
     {
-        //
-        return $user;
+       
+        return  $this->apiresponse($user,"ok",200);  
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, User $user)
     {
         //
           $validator = Validator::make($request->all(), [
             "email"=> [Rule::unique('users')->ignore($user->id)],
              "name"=>"required|min:3",
-            // "lname"=>"required|min:3",
-            "phone"=>"required|min:11",
-             "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
+             'phone' => ['required', 'regex:/^01[0-2]{1}[0-9]{8}$/'],
+             "image" => 'required','max:1000','mimes:png,jpg,jpeg',
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
         }
         $user->update($request->all());
-        return response()->json(['message' => "User updated succcfully", 'data' => $user], 201);
+    
+        return   $this->apiresponse($user,"User updated succcfully",201); 
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(User $user)
     {
-        //
+     
           $user->delete();
-        return response("Deleted", 204);
+        return $this->apiresponse($user,"User delete succcfully",201); 
     }
 }
