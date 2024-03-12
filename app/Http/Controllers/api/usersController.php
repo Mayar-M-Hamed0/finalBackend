@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\users;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +16,7 @@ class usersController extends Controller
     public function index()
     {
         //
-         return users::all();        
+         return User::all();        
 
     // }
         }
@@ -33,20 +33,21 @@ class usersController extends Controller
             "lname"=>"required|min:3",
             "email" => "required|email|unique:users,email",
             "phone"=>"required|min:11",
+             "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
             return response($validator->errors()->all());
         }
-        $track = users::create($request->all());
-        return response($track, 201);
+        $user = User::create($request->all());
+        return response($user, 201);
       
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(users $user)
+    public function show(User $user)
     {
         //
         return $user;
@@ -55,7 +56,7 @@ class usersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, users $user)
+    public function update(Request $request, User $user)
     {
         //
           $validator = Validator::make($request->all(), [
@@ -63,6 +64,7 @@ class usersController extends Controller
              "fname"=>"required|min:3",
             "lname"=>"required|min:3",
             "phone"=>"required|min:11",
+             "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
@@ -76,7 +78,7 @@ class usersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(users $user)
+    public function destroy(User $user)
     {
         //
           $user->delete();
