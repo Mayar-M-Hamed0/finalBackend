@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\users;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +16,7 @@ class usersController extends Controller
     public function index()
     {
         //
-         return users::all();        
+         return User::all();        
 
     // }
         }
@@ -39,7 +39,7 @@ class usersController extends Controller
         if($validator->fails()){
             return response($validator->errors()->all());
         }
-        $user = users::create($request->all());
+        $user = User::create($request->all());
         return response($user, 201);
       
     }
@@ -47,7 +47,7 @@ class usersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(users $user)
+    public function show(User $user)
     {
         //
         return $user;
@@ -56,7 +56,7 @@ class usersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, users $user)
+    public function update(Request $request, User $user)
     {
         //
           $validator = Validator::make($request->all(), [
@@ -78,7 +78,7 @@ class usersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(users $user)
+    public function destroy(User $user)
     {
         //
           $user->delete();
