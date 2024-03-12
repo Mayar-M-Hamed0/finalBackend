@@ -12,11 +12,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-// Route::get('users', function(){
-//     return "helo user api";
-// });
 
-// Route::get('users', [usersController::class, 'index']);
-// Route::post('users', [usersController::class, 'store']);
-// Route::get('users/{id}', [usersController::class, 'show']);
 
