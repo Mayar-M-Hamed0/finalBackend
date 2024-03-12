@@ -33,13 +33,14 @@ class usersController extends Controller
             "lname"=>"required|min:3",
             "email" => "required|email|unique:users,email",
             "phone"=>"required|min:11",
+             "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
             return response($validator->errors()->all());
         }
-        $track = users::create($request->all());
-        return response($track, 201);
+        $user = users::create($request->all());
+        return response($user, 201);
       
     }
 
@@ -63,6 +64,7 @@ class usersController extends Controller
              "fname"=>"required|min:3",
             "lname"=>"required|min:3",
             "phone"=>"required|min:11",
+             "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){

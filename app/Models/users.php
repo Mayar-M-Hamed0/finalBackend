@@ -16,6 +16,7 @@ class users extends Model
         'lname',
         'email',
         'phone',
+        'image',
         'password',
         // 'role',
         'remember_token',
@@ -26,9 +27,10 @@ class users extends Model
         // 'role',
     ];
 
-    //  protected $casts = [
-    //     'email_verified_at' => 'datetime',
-    // ];
+     protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
 
     
 }
