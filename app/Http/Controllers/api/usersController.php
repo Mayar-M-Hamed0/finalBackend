@@ -10,29 +10,25 @@ use Illuminate\Support\Facades\Validator;
 
 class usersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+    
          return User::all();        
 
-    // }
+
         }
         
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+      
         $validator = Validator::make($request->all(), [
             "name"=>"required|min:3",
             "email" => "required|email|unique:users,email",
             "phone"=>"required|min:11",
-            // "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
+         
+            "image" => 'required','max:1000','mimes:png,jpg,jpeg',
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
@@ -43,18 +39,14 @@ class usersController extends Controller
       
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(User $user)
     {
-        //
+       
         return $user;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, User $user)
     {
         //
@@ -62,7 +54,7 @@ class usersController extends Controller
             "email"=> [Rule::unique('users')->ignore($user->id)],
              "name"=>"required|min:3",
             "phone"=>"required|min:11",
-            //  "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
+            "image" => 'required','max:1000','mimes:png,jpg,jpeg',
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
@@ -73,9 +65,7 @@ class usersController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(User $user)
     {
         //
