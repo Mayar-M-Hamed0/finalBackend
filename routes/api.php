@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\usersController;
@@ -19,5 +20,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::post('users', [usersController::class, 'store']);
 // Route::get('users/{id}', [usersController::class, 'show']);
 
-
-Route::apiResource("users",usersController::class);
