@@ -32,6 +32,7 @@ class usersController extends Controller
             "name"=>"required|min:3",
             "email" => "required|email|unique:users,email",
             "phone"=>"required|min:11",
+            // "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
@@ -61,6 +62,7 @@ class usersController extends Controller
             "email"=> [Rule::unique('users')->ignore($user->id)],
              "name"=>"required|min:3",
             "phone"=>"required|min:11",
+            //  "image" => "required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp",
             "password"=>"required|min:8"
         ]);
         if($validator->fails()){
