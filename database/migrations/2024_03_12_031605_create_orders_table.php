@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('order_details');
             $table->string('order_state');
             $table->date('order_date');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

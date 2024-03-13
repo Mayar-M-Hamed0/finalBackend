@@ -4,7 +4,10 @@ use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\usersController;
 
 use App\Http\Controllers\api\ReviewController;
+
 use App\Http\Controllers\api\ServiceCenterController;
+
+
 use App\Http\Controllers\api\ordersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::apiResource("users",usersController::class);
+
 
 
 
@@ -52,3 +56,8 @@ Route::apiResource("services" , ServiceCenterController::class);
 // GET|HEAD        api/services/{service} ...................................................................... services.show › api\ServiceCenterController@show  
 // PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update  
 // DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy  
+
+Route::get("orders-archeive",[ordersController::class,"archeive"]);
+Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
+Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
+

@@ -75,4 +75,19 @@ class ordersController extends Controller
     {
        $order->delete();
     }
+
+    public function archeive(){
+        $order =Order::onlyTrashed()->get();
+        return $order;
+    }
+    public function restore($id){
+        order::withTrashed()
+        ->where('id', 1)
+        ->restore();
+    }
+    public function forcedelete($id){
+        order::withTrashed()
+        ->where('id', 1)
+        ->forceDelete();
+    }
 }
