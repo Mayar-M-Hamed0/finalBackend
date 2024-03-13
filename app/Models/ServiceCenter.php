@@ -10,7 +10,7 @@ class ServiceCenter extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image',
+       'car_name' ,'name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image',
     ];
 
     public function orders()

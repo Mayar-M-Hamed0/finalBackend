@@ -1,9 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\usersController;
 
+use App\Http\Controllers\api\ReviewController;
+use App\Http\Controllers\api\ServiceCenterController;
+use App\Http\Controllers\api\ordersController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -16,8 +20,35 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource("users",usersController::class);
 
-Route::get('/service-centers', [ServiceCenterController::class, 'index']);
-Route::post('/service-centers', [ServiceCenterController::class, 'store']);
-Route::get('/service-centers/{serviceCenter}', [ServiceCenterController::class, 'show']);
-Route::put('/service-centers/{serviceCenter}', [ServiceCenterController::class, 'update']);
-Route::delete('/service-centers/{serviceCenter}', [ServiceCenterController::class, 'destroy']);
+
+
+Route::post("login",[AuthController::class,"login"]);
+
+Route::post("logout",[AuthController::class,"logout"])->middleware("auth:sanctum");
+
+//// Route For review /////////
+
+Route::apiResource("reviews",ReviewController::class);
+/*
+
+ GET|HEAD        api/reviews ....... reviews.index › api\ReviewController@index
+  POST            api/reviews ... reviews.store › api\ReviewController@store
+  GET|HEAD        api/reviews/{review} ...... reviews.show › api\ReviewController@show
+  PUT|PATCH       api/reviews/{review} ..... reviews.update › api\ReviewController@update
+  DELETE          api/reviews/{review}.... reviews.destroy › api\ReviewController@destroy
+
+
+  */
+
+Route::apiResource("orders",ordersController::class);
+
+
+/////// Router for service center /////
+Route::apiResource("services" , ServiceCenterController::class);
+
+
+// GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index  
+// POST            api/services .............................................................................. services.store › api\ServiceCenterController@store  
+// GET|HEAD        api/services/{service} ...................................................................... services.show › api\ServiceCenterController@show  
+// PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update  
+// DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy  
