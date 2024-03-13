@@ -15,6 +15,11 @@ class usersController extends Controller
 
 use traitapi\apitrait;
 
+// public function __construct(){
+
+//      $this->middleware('auth');
+//      abort(403, 'please Log In !');
+// }
 
 public function index()
 {
@@ -52,11 +57,7 @@ public function index()
                 'password' => Hash::make($request->password),
             ]);
         
-            // Generate Sanctum token
-            $token = $user->createToken("personal access token")->plainTextToken;
-        
-            // Attach the token to the user
-            $user->token = $token;
+      
         
             return $this->apiresponse($user, "ok", 201);
         }
@@ -105,24 +106,10 @@ public function index()
 
 
 // login method
-    public function login(Request $request){
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)){
-            $user = User::where("email",$request->email)->first();
-            $token = $user->createToken("personal access token")->plainTextToken;
-            $user->token = $token;
-            return $this->apiresponse($user,"Login succcfully",200); 
-        }
-        return response()->json(["user"=> "These credentials do not match our records."]);
-    }
+
 
 
     // logout
 
-    public function logout(Request $request){
-        if ($request->user()->currentAccessToken()->delete()){
-            return response()->json(['msg' => "You have been successfully logged out!"]);
-        }
-        return response()->json(['msg' => "some thing went wrong"]);
-    }
+   
 }
