@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use  App\Http\Requests;
 class usersController extends Controller
 {
 // trait api 
@@ -61,6 +62,7 @@ public function index()
         
             return $this->apiresponse($user, "ok", 201);
         }
+        
 
     public function show($id)
     {

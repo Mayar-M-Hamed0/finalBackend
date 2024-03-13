@@ -10,6 +10,11 @@ class AuthController extends Controller
 {
     use traitapi\apitrait;
     public function login(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)){
             $user = User::where("email",$request->email)->first();
@@ -19,6 +24,7 @@ class AuthController extends Controller
         }
         return response()->json(["user"=> "These credentials do not match our records."]);
     }
+    
 
     public function logout(Request $request){
         if ($request->user()->currentAccessToken()->delete()){
