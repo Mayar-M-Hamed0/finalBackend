@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\api\ReviewController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\api\usersController;
 
+use App\Http\Controllers\api\ReviewController;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -17,6 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::post('/login', [usersController::class, 'login']);
 Route::apiResource("users",usersController::class);
 
+
+
+
+Route::post("login",[usersController::class,"login"]);
+
+Route::post("logout",[usersController::class,"logout"])->middleware("auth:sanctum");
 
 //// Route For review /////////
 
@@ -32,3 +40,4 @@ Route::apiResource("reviews",ReviewController::class);
 
  
   */
+
