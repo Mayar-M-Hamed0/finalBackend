@@ -43,3 +43,7 @@ Route::apiResource("reviews",ReviewController::class);
   */
 
 Route::apiResource("orders",ordersController::class);
+
+Route::get("orders-archeive",[ordersController::class,"archeive"]);
+Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
+Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
