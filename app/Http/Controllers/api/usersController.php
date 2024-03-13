@@ -16,16 +16,17 @@ class usersController extends Controller
 use traitapi\apitrait;
 
 
-    public function index()
-    {
-        
-        $user = User::all();
-   
-         return $this->apiresponse($user,"ok",200);      
+public function index()
+{
+    $users = User::all();
 
+    if ($users->isEmpty()) {
+        return "No User here !";
+    } else {
+        return $this->apiresponse($users, "ok", 200);
+    }
+}
 
-        }
-        
 
 
         public function store(Request $request)
@@ -110,7 +111,7 @@ use traitapi\apitrait;
             $user = User::where("email",$request->email)->first();
             $token = $user->createToken("personal access token")->plainTextToken;
             $user->token = $token;
-            return response()->json(["user"=>$user]);
+            return $this->apiresponse($user,"Login succcfully",200); 
         }
         return response()->json(["user"=> "These credentials do not match our records."]);
     }
