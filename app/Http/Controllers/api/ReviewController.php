@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
+    // function __construct(){
+    //     $this->middleware("auth:sanctum");
+    // }
+
+    
+// test api authenticate
+
+
+
     /**
      * Display a listing of the resource.
      */
