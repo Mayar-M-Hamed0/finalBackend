@@ -5,9 +5,14 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
+
+
+  
+
     // function __construct(){
     //     $this->middleware("auth:sanctum");
     // }
@@ -16,14 +21,13 @@ class ReviewController extends Controller
 // test api authenticate
 
 
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         return Review::all();
-
+    
     }
 
     /**
