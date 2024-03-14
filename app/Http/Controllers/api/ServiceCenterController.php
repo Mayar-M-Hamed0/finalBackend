@@ -57,18 +57,14 @@ class ServiceCenterController extends Controller
         return $this->apiresponse($serviceCenter, "ok", 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
+ 
     public function show(ServiceCenter $serviceCenter)
     {
        return $serviceCenter;
      }
     
 
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, ServiceCenter $serviceCenter)
     {
         $validator = Validator::make($request->all(), [
@@ -90,9 +86,7 @@ class ServiceCenterController extends Controller
         return  $this->apiresponse($serviceCenter,"Service updated succcfully",201); 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(ServiceCenter $serviceCenter)
     {
         $serviceCenter->delete();

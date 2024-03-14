@@ -8,6 +8,12 @@ use App\Http\Controllers\api\ReviewController;
 use App\Http\Controllers\api\ServiceCenterController;
 
 
+use App\Http\Controllers\api\ServiceController;
+
+
+
+
+
 use App\Http\Controllers\api\ordersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -57,7 +63,7 @@ Route::apiResource("orders",ordersController::class);
 
 
 /////// Router for service center /////
-Route::apiResource("services" , ServiceCenterController::class);
+Route::apiResource("service-center" , ServiceCenterController::class);
 
 
 // GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index  
@@ -69,4 +75,10 @@ Route::apiResource("services" , ServiceCenterController::class);
 Route::get("orders-archeive",[ordersController::class,"archeive"]);
 Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
 Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
+
+
+
+
+
+Route::apiResource('services', ServiceController::class);
 
