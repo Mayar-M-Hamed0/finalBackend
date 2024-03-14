@@ -40,8 +40,8 @@ public function index()
             $validator = Validator::make($request->all(), [
                 "name" => "required|min:3",
                 "email" => "required|email|unique:users,email",
-                'phone' => ['required', 'regex:/^01[0-2]{1}[0-9]{8}$/'],
-                "image" => 'required','max:1000','mimes:png,jpg,jpeg',
+                'phone' => ['regex:/^01[0-2]{1}[0-9]{8}$/'],
+                "image" => 'max:1000','mimes:png,jpg,jpeg',
                 'password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'],
             ]);
         
@@ -60,7 +60,7 @@ public function index()
         
       
         
-            return $this->apiresponse($user, "ok", 201);
+            return $this->apiresponse($user,"ok",201);;
         }
         
 
@@ -88,6 +88,18 @@ public function index()
         if($validator->fails()){
             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
         }
+        
+        if ($request->hasFile('image'))
+        {
+              $file      = $request->file('image');
+              $filename  = $file->getClientOriginalName();
+              $extension = $file->getClientOriginalExtension();
+              $picture   = date('His').'-'.$filename;
+              //move image to public/img folder
+              $file->move(public_path('img'), $picture);
+              return response()->json(["message" => "Image Uploaded Succesfully"]);
+        } 
+
         $user->update($request->all());
     
         return   $this->apiresponse($user,"User updated succcfully",201); 
