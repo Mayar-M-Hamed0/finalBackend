@@ -11,6 +11,9 @@ use App\Http\Controllers\api\ServiceCenterController;
 use App\Http\Controllers\api\ServiceController;
 
 
+use App\Http\Controllers\api\ServiceByController;
+
+
 
 
 
@@ -79,6 +82,9 @@ Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 
 
 
-
+//route for crud operations on services
 Route::apiResource('services', ServiceController::class);
 
+
+//route for retrive service-center by it's including services --> pass the service iddddd
+Route::resource('service-by', 'App\Http\Controllers\api\ServiceByController')->only(['show']);
