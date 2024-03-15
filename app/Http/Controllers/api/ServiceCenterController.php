@@ -35,7 +35,7 @@ class ServiceCenterController extends Controller
             'working_hours' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:255',
-            'services' => 'required|array', // Ensure services are provided as an array
+            'services' => 'required|array', 
         ]);
     
         if ($validator->fails()) {
@@ -54,7 +54,7 @@ class ServiceCenterController extends Controller
             'image' => $request->image,
         ]);
     
-        // Attach services to the service center based on the provided service IDs
+        
         $serviceCenter->services()->attach($request->input('services'));
     
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
