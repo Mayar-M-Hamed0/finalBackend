@@ -1,0 +1,194 @@
+service migration
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->string('service_name');
+            $table->string('service_details');
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('services');
+    }
+};
+
+service center migration 
+
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('service_centers', function (Blueprint $table) {
+            $table->id();
+            $table->string('car_name');
+            $table->string('name');
+            $table->integer('phone');
+            $table->float('rating');
+            $table->string('working_days');
+            $table->string('working_hours');
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('service_centers');
+    }
+};
+
+
+service model
+<?php
+
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Service extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'service_name', 'service_details', 'image',
+    ];
+
+    public function serviceCenters()
+    {
+        return $this->belongsToMany(ServiceCenter::class, 'service_center_services');
+    }
+}
+
+
+service center model
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ServiceCenter extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+       'car_name' ,'name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image',
+    ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function cars()
+    {
+        return $this->belongsToMany(Car::class, 'service_center_cars');
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'service_center_services');
+    }
+}
+
+relation model between them
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+class ServiceCenterService extends Pivot
+{
+    protected $table = 'service_center_services'; 
+
+    
+    public $timestamps = true; 
+}
+
+
+
+
+route defintion 
+Route::resource('service-by', 'App\Http\Controllers\api\ServiceByController')->only(['show']);
+
+
+the sample of data
+
+{
+            "id": 1,
+            "car_name": "kia",
+            "name": "kia",
+            "phone": 1102102007,
+            "rating": 3,
+            "working_days": "2-4",
+            "working_hours": "2-3",
+            "description": "wdads",
+            "image": "sads.png",
+            "created_at": "2024-03-12T13:58:48.000000Z",
+            "updated_at": "2024-03-12T13:58:48.000000Z"
+        }
+
+
+serviceBy controller
+<?php
+
+namespace App\Http\Controllers\api;
+
+use App\Http\Controllers\Controller;
+use App\Models\Service;
+use App\Models\ServiceCenter;
+use Illuminate\Http\Request;
+
+class ServiceByController extends Controller
+{
+
+    public function show(Service $service)
+    {
+        $serviceCenters = $service->serviceCenters()->get();
+        
+        return response()->json(['service_centers' => $serviceCenters], 200);
+    }
+
+}
+
+
