@@ -35,26 +35,29 @@ class ServiceCenterController extends Controller
             'working_hours' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:255',
+            'services' => 'required|array', // Ensure services are provided as an array
         ]);
-
+    
         if ($validator->fails()) {
-            return response($validator->errors()->all());
+            return response()->json(['errors' => $validator->errors()], 422);
         }
-
-         // Create the user
-         $serviceCenter = ServiceCenter::create([
-            'car_name'=> $request->car_name,
+    
+        // Create the service center
+        $serviceCenter = ServiceCenter::create([
+            'car_name' => $request->car_name,
             'name' => $request->name,
             'phone' => $request->phone,
             'rating' => $request->rating,
             'working_days' => $request->working_days,
-            'working_hours'=> $request->working_hours,
-            'description'=>$request ->description,
-            'image' => $request -> image
-
+            'working_hours' => $request->working_hours,
+            'description' => $request->description,
+            'image' => $request->image,
         ]);
     
-        return $this->apiresponse($serviceCenter, "ok", 201);
+        // Attach services to the service center based on the provided service IDs
+        $serviceCenter->services()->attach($request->input('services'));
+    
+        return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
 
  
