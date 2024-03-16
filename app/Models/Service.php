@@ -18,4 +18,9 @@ class Service extends Model
     {
         return $this->belongsToMany(ServiceCenter::class, 'service_center_services');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -2,22 +2,14 @@
 
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\usersController;
-
 use App\Http\Controllers\api\ReviewController;
-
 use App\Http\Controllers\api\ServiceCenterController;
-
-
 use App\Http\Controllers\api\ServiceController;
-
-
 use App\Http\Controllers\api\ServiceByController;
-
-
-
-
-
+use App\Http\Controllers\api\CarController;
 use App\Http\Controllers\api\ordersController;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -69,6 +61,10 @@ Route::apiResource("orders",ordersController::class);
 Route::apiResource("service-center" , ServiceCenterController::class);
 
 
+Route::get("Allservice-center" , [ServiceCenterController::class,'index']);
+
+
+
 // GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index  
 // POST            api/services .............................................................................. services.store › api\ServiceCenterController@store  
 // GET|HEAD        api/services/{service} ...................................................................... services.show › api\ServiceCenterController@show  
@@ -88,3 +84,8 @@ Route::apiResource('services', ServiceController::class);
 
 //route for retrive service-center by it's including services --> pass the service iddddd
 Route::resource('service-by', 'App\Http\Controllers\api\ServiceByController')->only(['show']);
+
+
+
+//route for car CRUD
+Route::resource('cars', 'App\Http\Controllers\api\CarController');

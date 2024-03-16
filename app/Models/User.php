@@ -19,7 +19,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
          'name',
-        // 'lname',
         'email',
         'phone',
         'image',
@@ -47,4 +46,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+    public function serviceCenters()
+    {
+        return $this->hasMany(ServiceCenter::class);
+    }
+    
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }
