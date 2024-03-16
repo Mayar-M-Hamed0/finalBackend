@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\api;
 
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Service;
 use App\Models\ServiceCenter;
 
@@ -33,8 +35,9 @@ class ServiceController extends Controller
         if ($validator->fails()) {
             return response($validator->errors()->all(), 422);
         }
-
+        $userId = auth()->id();
         $service = Service::create([
+            //'user_id' => $userId,
             'service_name' => $request->service_name,
             'service_details' => $request->service_details,
             'image' => $request->image,

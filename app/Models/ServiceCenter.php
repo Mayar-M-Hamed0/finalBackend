@@ -10,7 +10,7 @@ class ServiceCenter extends Model
     use HasFactory;
 
     protected $fillable = [
-       'car_name' ,'name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image',
+        'name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image',
     ];
 
     public function orders()
@@ -25,7 +25,8 @@ class ServiceCenter extends Model
 
     public function cars()
     {
-        return $this->belongsToMany(Car::class, 'service_center_cars');
+        return $this->belongsToMany(Car::class, 'service_center_cars')
+            ->using(ServiceCenterCar::class);
     }
 
     public function services()

@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\api;
+
+use Illuminate\Support\Facades\Auth;
+
+
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\ServiceCenter;
@@ -27,7 +31,7 @@ class ServiceCenterController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'car_name' => 'required|string|max:255',
+          
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'rating' => 'required|numeric',
@@ -35,7 +39,10 @@ class ServiceCenterController extends Controller
             'working_hours' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:255',
+
+
             'services' => 'required|array', 
+            'cars' => 'required|array', 
         ]);
     
         if ($validator->fails()) {
@@ -43,7 +50,9 @@ class ServiceCenterController extends Controller
         }
     
         // Create the service center
+        $userId = auth()->id();
         $serviceCenter = ServiceCenter::create([
+            //'user_id' => $userId,
             'car_name' => $request->car_name,
             'name' => $request->name,
             'phone' => $request->phone,
@@ -56,6 +65,9 @@ class ServiceCenterController extends Controller
     
         
         $serviceCenter->services()->attach($request->input('services'));
+    
+        
+        $serviceCenter->cars()->attach($request->input('cars'));
     
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
@@ -71,6 +83,7 @@ class ServiceCenterController extends Controller
     public function update(Request $request, ServiceCenter $serviceCenter)
     {
         $validator = Validator::make($request->all(), [
+            
             'car_name' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
