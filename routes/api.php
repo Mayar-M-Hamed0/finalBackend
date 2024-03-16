@@ -57,11 +57,14 @@ Route::apiResource("reviews",ReviewController::class);
 Route::apiResource("orders",ordersController::class);
 
 
-/////// Router for service center /////
-Route::apiResource("service-center" , ServiceCenterController::class)->middleware('auth:sanctum');
+
+Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum', 'check.agent']);
 
 
-Route::get("Allservice-center" , [ServiceCenterController::class,'index']);
+
+
+Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
+
 
 
 
