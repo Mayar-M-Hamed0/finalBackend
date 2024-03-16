@@ -14,22 +14,31 @@ class ServiceCenterController extends Controller
 {
     use traitapi\apitrait;
    
-    public function index()
-    {
+//  all data for web site
+    public function all(){
         $serviceCenters = ServiceCenter::all();
-        if ($serviceCenters->isEmpty()) {
-            return "No Services here !";
-        } else {
-            return $this->apiresponse($serviceCenters, "ok", 200);
-        }
-        
+        return response()->json($serviceCenters);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
+
+
+    //  auth :sanctum (for user authentication)
+    public function index(Request $request)
+    {
+        $this->authorize('viewAny', ServiceCenter::class);
+    
+        $user_id = $request->user()->id;
+        $services = ServiceCenter::where('user_id', $user_id)->get();
+    
+        return response()->json($services);
+    }
+
+ 
     public function store(Request $request)
     {
+        $this->authorize('create', ServiceCenter::class);
+
         $validator = Validator::make($request->all(), [
           
             'name' => 'required|string|max:255',
@@ -70,43 +79,51 @@ class ServiceCenterController extends Controller
         
         $serviceCenter->cars()->attach($request->input('cars'));
     
-        return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
+        return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter],201);
     }
 
  
     public function show(ServiceCenter $serviceCenter)
     {
-       return $serviceCenter;
-     }
+      
+        if ($serviceCenter->user_id !== auth()->id()) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+    
+        return response()->json($serviceCenter);
+    }
     
 
    
-    public function update(Request $request, ServiceCenter $serviceCenter)
-    {
-        $validator = Validator::make($request->all(), [
-            
-            'car_name' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'rating' => 'required|numeric',
-            'working_days' => 'required|string|max:255',
-            'working_hours' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|string|max:255',
-        ]);
-
-        if($validator->fails()){
-            return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
-        }
-
-        $serviceCenter->update($request->all());
-        return  $this->apiresponse($serviceCenter,"Service updated succcfully",201); 
-    }
+     public function update(Request $request, ServiceCenter $serviceCenter)
+     {
+         $this->authorize('update', $serviceCenter);
+         $validator = Validator::make($request->all(), [
+             'car_name' => 'required|string|max:255',
+             'name' => 'required|string|max:255',
+             'phone' => 'required|string|max:255',
+             'rating' => 'required|numeric',
+             'working_days' => 'required|string|max:255',
+             'working_hours' => 'required|string|max:255',
+             'description' => 'nullable|string',
+             'image' => 'nullable|string|max:255',
+         ]);
+     
+         if($validator->fails()){
+             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
+         }
+     
+         $serviceCenter->update($request->all());
+         return $this->apiresponse($serviceCenter, "Service updated successfully", 200); 
+     }
+     
 
    
     public function destroy(ServiceCenter $serviceCenter)
     {
+        $this->authorize('update', $serviceCenter);
         $serviceCenter->delete();
-        return $this->apiresponse($serviceCenter,"Service delete succcfully",201); 
+        return $this->apiresponse($serviceCenter, "Service deleted successfully", 200); 
     }
+    
 }
