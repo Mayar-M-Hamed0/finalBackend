@@ -48,11 +48,11 @@ class ServiceCenterController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
-    
-        // Create the service center
-        $userId = auth()->id();
+        
+        $user_id = $request->user()->id;
+
         $serviceCenter = ServiceCenter::create([
-            //'user_id' => $userId,
+            'user_id' => $user_id,
             'car_name' => $request->car_name,
             'name' => $request->name,
             'phone' => $request->phone,
@@ -62,7 +62,8 @@ class ServiceCenterController extends Controller
             'description' => $request->description,
             'image' => $request->image,
         ]);
-    
+        
+        
         
         $serviceCenter->services()->attach($request->input('services'));
     
