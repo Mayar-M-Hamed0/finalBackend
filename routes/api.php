@@ -58,7 +58,7 @@ Route::apiResource("orders",ordersController::class);
 
 
 /////// Router for service center /////
-Route::apiResource("service-center" , ServiceCenterController::class);
+Route::apiResource("service-center" , ServiceCenterController::class)->middleware('auth:sanctum');
 
 
 Route::get("Allservice-center" , [ServiceCenterController::class,'index']);
