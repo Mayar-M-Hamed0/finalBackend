@@ -29,6 +29,7 @@ class OrdersController extends Controller
             'order_details' => 'required',
             'service_center_id' => 'required',
             'order_date' => 'required',
+            'order_state' => 'required',
             'phone' => 'required',
             'car_model' => 'required',
             'services' => 'array|required',
