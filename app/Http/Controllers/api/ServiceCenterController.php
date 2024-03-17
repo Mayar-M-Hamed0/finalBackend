@@ -21,23 +21,6 @@ class ServiceCenterController extends Controller
         return response()->json($serviceCenters);
     }
 
-
-
-
-    //  auth :sanctum (for user authentication)
-    public function index(Request $request)
-    {
-   
-
-        $user_id = $request->user()->id;
-        
-        $services = ServiceCenter::where('user_id', $user_id)->get();
-    
-        return response()->json($services);
-    }
-
-
- 
     public function store(Request $request)
     {
         $this->authorize('create', ServiceCenter::class);
