@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\orderResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Order;
@@ -14,11 +15,11 @@ class OrdersController extends Controller
     public function index()
     {
         $orders = Order::all();
-        if ($orders->isEmpty()) {
-            return "No orders available!";
-        } else {
-            return $this->apiresponse($orders, "ok", 200);
-        }
+        // if ($orders->isEmpty()) {
+        //     return "No orders available!";
+        // } else {
+            return orderResource::collection($orders);
+        // }
     }
 
     public function store(Request $request)
@@ -30,7 +31,7 @@ class OrdersController extends Controller
             'order_date' => 'required',
             'phone' => 'required',
             'car_model' => 'required',
-            'services' => 'array|required', 
+            'services' => 'array|required',
         ]);
 
         if ($validator->fails()) {
@@ -66,7 +67,7 @@ class OrdersController extends Controller
             'order_date' => 'required',
             'phone' => 'required',
             'car_model' => 'required',
-            'services' => 'array|required', 
+            'services' => 'array|required',
         ]);
 
         if ($validator->fails()) {
