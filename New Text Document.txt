@@ -1,4 +1,44 @@
-service migration
+this is oreders migration 
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('service_center_id');
+            $table->string('order_details');
+            $table->string('order_state');
+            $table->date('order_date');
+            $table->softDeletes();
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('service_center_id')->references('id')->on('service_centers')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('orders');
+    }
+};
+
+
+
+this is services miigration 
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -18,6 +58,11 @@ return new class extends Migration
             $table->string('service_details');
             $table->string('image')->nullable();
             $table->timestamps();
+
+
+            
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,46 +75,42 @@ return new class extends Migration
     }
 };
 
-service center migration 
 
+
+
+this is order model
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Models;
 
-return new class extends Migration
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Order extends Model
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    use HasFactory;
+    use SoftDeletes;
+
+    protected $fillable = [
+        'user_id', 'service_center_id', 'order_details', 'order_state', 'order_date',
+    ];
+
+    public function user()
     {
-        Schema::create('service_centers', function (Blueprint $table) {
-            $table->id();
-            $table->string('car_name');
-            $table->string('name');
-            $table->integer('phone');
-            $table->float('rating');
-            $table->string('working_days');
-            $table->string('working_hours');
-            $table->string('description')->nullable();
-            $table->string('image')->nullable();
-            $table->timestamps();
-        });
+        return $this->belongsTo(User::class);
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function serviceCenter()
     {
-        Schema::dropIfExists('service_centers');
+        return $this->belongsTo(ServiceCenter::class);
     }
-};
+}
 
 
-service model
+
+
+this is service model
 <?php
 
 
@@ -90,105 +131,9 @@ class Service extends Model
     {
         return $this->belongsToMany(ServiceCenter::class, 'service_center_services');
     }
-}
 
-
-service center model
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class ServiceCenter extends Model
-{
-    use HasFactory;
-
-    protected $fillable = [
-       'car_name' ,'name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image',
-    ];
-
-    public function orders()
+    public function user()
     {
-        return $this->hasMany(Order::class);
-    }
-
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
-
-    public function cars()
-    {
-        return $this->belongsToMany(Car::class, 'service_center_cars');
-    }
-
-    public function services()
-    {
-        return $this->belongsToMany(Service::class, 'service_center_services');
+        return $this->belongsTo(User::class);
     }
 }
-
-relation model between them
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Relations\Pivot;
-
-class ServiceCenterService extends Pivot
-{
-    protected $table = 'service_center_services'; 
-
-    
-    public $timestamps = true; 
-}
-
-
-
-
-route defintion 
-Route::resource('service-by', 'App\Http\Controllers\api\ServiceByController')->only(['show']);
-
-
-the sample of data
-
-{
-            "id": 1,
-            "car_name": "kia",
-            "name": "kia",
-            "phone": 1102102007,
-            "rating": 3,
-            "working_days": "2-4",
-            "working_hours": "2-3",
-            "description": "wdads",
-            "image": "sads.png",
-            "created_at": "2024-03-12T13:58:48.000000Z",
-            "updated_at": "2024-03-12T13:58:48.000000Z"
-        }
-
-
-serviceBy controller
-<?php
-
-namespace App\Http\Controllers\api;
-
-use App\Http\Controllers\Controller;
-use App\Models\Service;
-use App\Models\ServiceCenter;
-use Illuminate\Http\Request;
-
-class ServiceByController extends Controller
-{
-
-    public function show(Service $service)
-    {
-        $serviceCenters = $service->serviceCenters()->get();
-        
-        return response()->json(['service_centers' => $serviceCenters], 200);
-    }
-
-}
-
-
