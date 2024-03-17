@@ -26,7 +26,7 @@ class ServiceCenterController extends Controller
 
 
     public function index(){
-        $this->authorize('viewany', ServiceCenter::class);
+        $this->authorize('create', ServiceCenter::class);
      $user_id = Auth::id();
 
     $userServices = ServiceCenter::where('user_id', $user_id)->get();
