@@ -62,6 +62,8 @@ Route::apiResource("orders",ordersController::class);
 // only agent create service can delete or update this service
 
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
+
+
 // دي هتجيب السنجل 
 Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
 // دا هيعرض كله
