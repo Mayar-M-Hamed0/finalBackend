@@ -79,7 +79,7 @@ class ServiceCenterController extends Controller
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter],201);
     }
 
- 
+//  show retutn service only created this service !!
     public function show(ServiceCenter $serviceCenter)
     {
         $this->authorize('view', $serviceCenter);
@@ -88,6 +88,8 @@ class ServiceCenterController extends Controller
         return response()->json($serviceCenter);
     }
 
+
+    //  retturn single service for all user 
     public function singleitem($id)
     {
         $serviceCenter = ServiceCenter::find($id);
