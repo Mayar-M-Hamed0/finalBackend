@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('service_center_id');
             $table->string('order_details');
             $table->string('order_state');
+            $table->string('car_model');
+            $table->string('phone');
             $table->date('order_date');
             $table->softDeletes();
             $table->timestamps();
