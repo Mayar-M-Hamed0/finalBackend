@@ -28,7 +28,6 @@ class Kernel extends HttpKernel
     
     protected $routeMiddleware = [
         
-        'check.agent' => \App\Http\Middleware\CheckAgentRole::class,
         'checkrole' => \App\Http\Middleware\CheckRole::class,
     ];
     /**

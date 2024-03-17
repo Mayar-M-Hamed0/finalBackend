@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function () {
 
   Route::put('/users/{user}', [usersController::class, 'update'])->middleware('can:update,user');
-  Route::delete("users/{user}",[usersController::class,'destroy'])->middleware('can:update,user');
+  // Route::delete("users/{user}",[usersController::class,'destroy'])->middleware('can:update,user');
 });
 
 Route::get("alluser",[usersController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
@@ -57,12 +57,13 @@ Route::apiResource("reviews",ReviewController::class);
 Route::apiResource("orders",ordersController::class);
 
 
+//  agent only create 
+// only agent create service can delete or update this service
 
-Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum', 'check.agent']);
-
-
-
-
+Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
+// دي هتجيب السنجل 
+Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
+// دا هيعرض كله
 Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 
 

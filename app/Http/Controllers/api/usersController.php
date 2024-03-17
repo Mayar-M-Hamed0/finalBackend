@@ -106,7 +106,7 @@ public function index()
 
         $user->update($request->all());
     
-        return   $this->apiresponse($user,"User updated succcfully",201); 
+        return   $this->apiresponse(null,"User updated succcfully",201); 
 
     }
 
