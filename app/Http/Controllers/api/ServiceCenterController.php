@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\ServiceCenter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ServiceCenterController extends Controller
 {
@@ -23,21 +24,17 @@ class ServiceCenterController extends Controller
 
 
 
-    //  auth :sanctum (for user authentication)
-    public function index(Request $request)
-    {
-        $this->authorize('viewAny', ServiceCenter::class);
 
-        $user_id = $request->user()->id;
-        $services = ServiceCenter::where('user_id', $user_id)->get();
-    
-        return response()->json($services);
-    }
+
+
 
  
+
     public function store(Request $request)
     {
         $this->authorize('create', ServiceCenter::class);
+
+
 
         $validator = Validator::make($request->all(), [
           
@@ -85,9 +82,18 @@ class ServiceCenterController extends Controller
  
     public function show(ServiceCenter $serviceCenter)
     {
-      
-        if ($serviceCenter->user_id !== auth()->id()) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+        $this->authorize('view', $serviceCenter);
+
+        
+        return response()->json($serviceCenter);
+    }
+
+    public function singleitem($id)
+    {
+        $serviceCenter = ServiceCenter::find($id);
+    
+        if (!$serviceCenter) {
+            return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
         }
     
         return response()->json($serviceCenter);
@@ -97,7 +103,9 @@ class ServiceCenterController extends Controller
    
      public function update(Request $request, ServiceCenter $serviceCenter)
      {
-         $this->authorize('update', $serviceCenter);
+        $this->authorize('update', $serviceCenter);
+
+
          $validator = Validator::make($request->all(), [
              'car_name' => 'required|string|max:255',
              'name' => 'required|string|max:255',
@@ -121,7 +129,7 @@ class ServiceCenterController extends Controller
    
     public function destroy(ServiceCenter $serviceCenter)
     {
-        $this->authorize('update', $serviceCenter);
+        $this->authorize('delete', $serviceCenter);
         $serviceCenter->delete();
         return $this->apiresponse($serviceCenter, "Service deleted successfully", 200); 
     }
