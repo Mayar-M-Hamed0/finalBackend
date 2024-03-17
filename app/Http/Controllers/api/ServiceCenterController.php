@@ -48,6 +48,7 @@ class ServiceCenterController extends Controller
             'working_hours' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:255',
+            'location' => 'required|string',
 
 
             'services' => 'required|array', 
@@ -70,6 +71,7 @@ class ServiceCenterController extends Controller
             'working_hours' => $request->working_hours,
             'description' => $request->description,
             'image' => $request->image,
+            'location' => $request->location,
         ]);
         
         
