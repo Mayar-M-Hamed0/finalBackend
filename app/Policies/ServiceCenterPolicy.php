@@ -11,9 +11,9 @@ class ServiceCenterPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user,ServiceCenter $serviceCenter)
     {
-        //
+        return $user->id === $serviceCenter->user_id ;
     }
 
     /**

@@ -25,10 +25,16 @@ class ServiceCenterController extends Controller
 
 
 
+    public function index(){
+        $this->authorize('viewany', ServiceCenter::class);
+     $user_id = Auth::id();
+
+    $userServices = ServiceCenter::where('user_id', $user_id)->get();
+
+    return response()->json($userServices);
+    }
 
 
-
- 
 
     public function store(Request $request)
     {
@@ -55,7 +61,7 @@ class ServiceCenterController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
         
-        $user_id = $request->user()->id;
+       $user_id = $request->user()->id;
 
         $serviceCenter = ServiceCenter::create([
             'user_id' => $user_id,
