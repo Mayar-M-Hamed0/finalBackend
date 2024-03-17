@@ -3,91 +3,87 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Order;
 
-
-class ordersController extends Controller
+class OrdersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    use traitapi\apitrait;
+
     public function index()
     {
-        $order=order::all();
-        return $order;
+        $orders = Order::all();
+        if ($orders->isEmpty()) {
+            return "No orders available!";
+        } else {
+            return $this->apiresponse($orders, "ok", 200);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $validator=validator::make($request->all(),
-       [ 'user_id'=>"required",
-            // 'user_id'=>auth::user(),
-            'order_details'=>'required',
-            'service_center_id'=>'required',
-            'order_date'=>"required"
-       ]
-
-
-    );
-        if ($validator->fails()){
-            return response($validator->errors()->all());
-        }
-        $order=order::create([
-            'user_id'=>$request['user_id'],
-            // 'user_id'=>auth::user(),
-            'order_details'=>$request['order_details'],
-            'service_center_id'=>$request['service_center_id'],
-            'order_date'=>$request['order_date'],
-            'order_state'=>"appended"
-
-
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required',
+            'order_details' => 'required',
+            'service_center_id' => 'required',
+            'order_date' => 'required',
+            'phone' => 'required',
+            'car_model' => 'required',
+            'services' => 'array|required', 
         ]);
-        return $order;
+
+        if ($validator->fails()) {
+            return response($validator->errors()->all(), 422);
+        }
+
+        $order = Order::create([
+            'user_id' => $request->user_id,
+            'order_details' => $request->order_details,
+            'service_center_id' => $request->service_center_id,
+            'order_date' => $request->order_date,
+            'phone' => $request->phone,
+            'car_model' => $request->car_model,
+            'order_state' => $request->order_state,
+        ]);
+
+        $order->services()->attach($request->input('services'));
+
+        return $this->apiresponse($order, "Order created successfully", 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Order $order)
     {
-        return $order;
+        return $this->apiresponse($order, "ok", 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Order $order)
     {
-       $order->update($request->all());
-       return "done";
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required',
+            'order_details' => 'required',
+            'service_center_id' => 'required',
+            'order_date' => 'required',
+            'phone' => 'required',
+            'car_model' => 'required',
+            'services' => 'array|required', 
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors()->all(), 422);
+        }
+
+        $order->update($request->all());
+
+        // Sync the selected services with the order
+        $order->services()->sync($request->input('services'));
+
+        return $this->apiresponse($order, "Order updated successfully", 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Order $order)
     {
-       $order->delete();
-    }
-
-    public function archeive(){
-        $order =Order::onlyTrashed()->get();
-        return $order;
-    }
-    public function restore($id){
-        order::withTrashed()
-        ->where('id', 1)
-        ->restore();
-    }
-    public function forcedelete($id){
-        order::withTrashed()
-        ->where('id', 1)
-        ->forceDelete();
+        $order->delete();
+        return $this->apiresponse([], "Order deleted successfully", 200);
     }
 }
