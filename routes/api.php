@@ -69,6 +69,11 @@ Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 
 
 
+// بترجع كل السرفسيس الي اليوزر كريتها
+
+
+
+
 
 // GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index  
 // POST            api/services .............................................................................. services.store › api\ServiceCenterController@store  
@@ -84,7 +89,10 @@ Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 
 
 //route for crud operations on services
-Route::apiResource('services', ServiceController::class);
+// Route::apiResource('services', ServiceController::class);
+
+
+
 
 
 //route for retrive service-center by it's including services --> pass the service iddddd
