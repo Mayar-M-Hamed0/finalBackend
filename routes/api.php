@@ -55,16 +55,16 @@ Route::apiResource("reviews",ReviewController::class);
 
   */
 
+Route::apiResource("orders",ordersController::class);
+
+
+
+Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum', 'check.agent']);
 
 
 
 
-
-
-
-
-
-
+Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 
 
 
@@ -75,23 +75,11 @@ Route::apiResource("reviews",ReviewController::class);
 // PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update  
 // DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy  
 
-
-
-//CRUD on orders
-Route::apiResource("orders",ordersController::class);
-
-
-
 Route::get("orders-archeive",[ordersController::class,"archeive"]);
 Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
 Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 
 
-//CRUD on service-center with aagem auth
-Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum', 'check.agent']);
-
-//get all service-center
-Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 
 
 //route for crud operations on services
