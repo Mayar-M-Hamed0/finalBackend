@@ -8,6 +8,7 @@ use App\Http\Controllers\api\ServiceController;
 use App\Http\Controllers\api\ServiceByController;
 use App\Http\Controllers\api\CarController;
 use App\Http\Controllers\api\ordersController;
+use App\Http\Controllers\api\AgentController;
 
 
 use Illuminate\Http\Request;
@@ -93,3 +94,7 @@ Route::resource('service-by', 'App\Http\Controllers\api\ServiceByController')->o
 
 //route for car CRUD
 Route::resource('cars', 'App\Http\Controllers\api\CarController');
+
+
+//admin apply CRUD on USER
+Route::apiResource('admins', AgentController::class);

@@ -21,6 +21,15 @@ class ServiceCenterController extends Controller
         return response()->json($serviceCenters);
     }
 
+
+
+
+
+
+
+
+ 
+
     public function store(Request $request)
     {
         $this->authorize('create', ServiceCenter::class);
