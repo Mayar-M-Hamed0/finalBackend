@@ -13,7 +13,6 @@ class ServiceCenterPolicy
      */
     public function viewAny(User $user)
     {
-        //
     }
 
     /**

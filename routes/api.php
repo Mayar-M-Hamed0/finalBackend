@@ -62,10 +62,17 @@ Route::apiResource("orders",ordersController::class);
 // only agent create service can delete or update this service
 
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
+
+
 // دي هتجيب السنجل 
 Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
 // دا هيعرض كله
 Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
+
+
+
+// بترجع كل السرفسيس الي اليوزر كريتها
+
 
 
 
@@ -84,7 +91,10 @@ Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 
 
 //route for crud operations on services
-Route::apiResource('services', ServiceController::class);
+// Route::apiResource('services', ServiceController::class);
+
+
+
 
 
 //route for retrive service-center by it's including services --> pass the service iddddd
