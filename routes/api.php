@@ -123,9 +123,10 @@ Route::resource('cars', 'App\Http\Controllers\api\CarController');
 Route::apiResource('admins', AgentController::class)->middleware(['auth:sanctum', 'checkrole:admin']);
 
 
-//contact 
 
 
 
+//cotact
 Route::get("GetContact",[ContactMessageController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
+Route::delete("DelContact/{id}",[ContactMessageController::class,'destroy'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::post("PostContact",[ContactMessageController::class,'store']);
