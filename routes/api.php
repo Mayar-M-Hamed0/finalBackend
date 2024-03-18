@@ -74,7 +74,8 @@ Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
 
 
-// دي هتجيب السنجل 
+// دي هتجيب السنجل  
+
 Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
 // دا هيعرض كله
 Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
@@ -117,10 +118,14 @@ Route::resource('cars', 'App\Http\Controllers\api\CarController');
 
 
 //admin apply CRUD on USER
-Route::apiResource('admins', AgentController::class);
+
+
+Route::apiResource('admins', AgentController::class)->middleware(['auth:sanctum', 'checkrole:admin']);
 
 
 //contact 
+
+
 
 Route::get("GetContact",[ContactMessageController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::post("PostContact",[ContactMessageController::class,'store']);
