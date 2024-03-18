@@ -121,6 +121,6 @@ Route::apiResource('admins', AgentController::class);
 
 
 //contact 
-
 Route::get("GetContact",[ContactMessageController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
+Route::delete("DelContact/{id}",[ContactMessageController::class,'destroy'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::post("PostContact",[ContactMessageController::class,'store']);
