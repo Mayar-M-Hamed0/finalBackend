@@ -14,6 +14,9 @@ class OrdersController extends Controller
 
     public function index()
     {
+
+        $this->authorize('index', Order::class);
+
         $orders = Order::all();
         // if ($orders->isEmpty()) {
         //     return "No orders available!";
@@ -24,6 +27,8 @@ class OrdersController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('create', Order::class);
+
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
 
@@ -103,4 +108,16 @@ class OrdersController extends Controller
 
         return $this->apiresponse($orders, "Orders found for the specified service center ID", 200);
     }
+
+
+    public function getOrdersByUserId($user_id)
+{
+    $orders = Order::where('user_id', $user_id)->get();
+
+    if ($orders->isEmpty()) {
+        return $this->apiresponse([], "No orders found for the specified user ID", 404);
+    }
+
+    return $this->apiresponse($orders, "Orders found for the specified user ID", 200);
+}
 }
