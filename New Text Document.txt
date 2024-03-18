@@ -1,139 +1,47 @@
-this is oreders migration 
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('service_center_id');
-            $table->string('order_details');
-            $table->string('order_state');
-            $table->date('order_date');
-            $table->softDeletes();
-            $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('service_center_id')->references('id')->on('service_centers')->onDelete('cascade');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('orders');
-    }
-};
-
-
-
-this is services miigration 
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('services', function (Blueprint $table) {
-            $table->id();
-            $table->string('service_name');
-            $table->string('service_details');
-            $table->string('image')->nullable();
-            $table->timestamps();
-
-
-            
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('services');
-    }
-};
-
-
-
-
-this is order model
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Order extends Model
-{
-    use HasFactory;
-    use SoftDeletes;
-
-    protected $fillable = [
-        'user_id', 'service_center_id', 'order_details', 'order_state', 'order_date',
-    ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function serviceCenter()
-    {
-        return $this->belongsTo(ServiceCenter::class);
-    }
-}
-
-
-
-
-this is service model
-<?php
-
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Service extends Model
-{
-    use HasFactory;
-
-    protected $fillable = [
-        'service_name', 'service_details', 'image',
-    ];
-
-    public function serviceCenters()
-    {
-        return $this->belongsToMany(ServiceCenter::class, 'service_center_services');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    "id": 5,
+    "name": "test",
+    "phone": 1102100292,
+    "rating": 1,
+    "working_days": "sunday-thursday",
+    "working_hours": "24h",
+    "location": "maddi",
+    "description": "ay haga",
+    "image": "maddi.png",
+    "created_at": "2024-03-18T04:07:16.000000Z",
+    "updated_at": "2024-03-18T04:07:16.000000Z",
+    "user_id": 1,
+    "services": [
+        {
+            "service_name": "tire",
+            "service_details": "tire",
+            "pivot": {
+                "service_center_id": 5,
+                "service_id": 1
+            }
+        }
+    ],
+    "cars": [
+        {
+            "car_name": "bmw",
+            "pivot": {
+                "service_center_id": 5,
+                "car_id": 1
+            }
+        },
+        {
+            "car_name": "oudi",
+            "pivot": {
+                "service_center_id": 5,
+                "car_id": 2
+            }
+        },
+        {
+            "car_name": "nisaan",
+            "pivot": {
+                "service_center_id": 5,
+                "car_id": 3
+            }
+        }
+    ]
 }
