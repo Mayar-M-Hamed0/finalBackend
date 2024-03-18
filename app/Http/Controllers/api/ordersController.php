@@ -26,7 +26,7 @@ class OrdersController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
-            'order_details' => 'required',
+
             'service_center_id' => 'required',
             'order_date' => 'required',
             'order_state' => 'required',
@@ -36,7 +36,7 @@ class OrdersController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response($validator->errors()->all(), 422);
+            return response()->json(['errors' => $validator->errors()->messages()], 422);
         }
 
         $order = Order::create($request->all());
@@ -52,7 +52,7 @@ class OrdersController extends Controller
 
         $order->services()->attach($request->input('services'));
 
-        return $this->apiresponse($order, "Order created successfully", 201);
+        return response()->json(['message' => 'Ordet created successfully', 'data' => $order],201);
     }
 
     public function show(Order $order)
