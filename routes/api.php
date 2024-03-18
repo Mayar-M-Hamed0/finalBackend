@@ -9,6 +9,7 @@ use App\Http\Controllers\api\ServiceByController;
 use App\Http\Controllers\api\CarController;
 use App\Http\Controllers\api\ordersController;
 use App\Http\Controllers\api\AgentController;
+use App\Http\Controllers\api\ContactMessageController;
 
 
 use Illuminate\Http\Request;
@@ -55,12 +56,12 @@ Route::apiResource("reviews",ReviewController::class);
 
   */
 
-Route::apiResource("orders",ordersController::class);
+Route::apiResource("orders",ordersController::class)->middleware(['auth:sanctum']);
 
 //get the order in specific center id
-Route::get("orderByServiceCenter/{id}" , [OrdersController::class,'getOrdersByServiceCenterId']);
+Route::get("orderByServiceCenter/{id}" , [ordersController::class,'getOrdersByServiceCenterId']);
 //get the order in specific user id
-Route::get("orderByUser/{id}" , [OrdersController::class,'getOrdersByUserId']);
+Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId']);
 
 
 
@@ -117,3 +118,7 @@ Route::resource('cars', 'App\Http\Controllers\api\CarController');
 
 //admin apply CRUD on USER
 Route::apiResource('admins', AgentController::class);
+
+
+//contact 
+Route::apiResource('contacts', ContactMessageController::class);
