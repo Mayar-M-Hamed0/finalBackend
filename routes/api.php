@@ -57,8 +57,12 @@ Route::apiResource("reviews",ReviewController::class);
 
 Route::apiResource("orders",ordersController::class);
 
-//gert the order in specific center id
+//get the order in specific center id
 Route::get("orderByServiceCenter/{id}" , [OrdersController::class,'getOrdersByServiceCenterId']);
+//get the order in specific user id
+Route::get("orderByUser/{id}" , [OrdersController::class,'getOrdersByUserId']);
+
+
 
 
 
