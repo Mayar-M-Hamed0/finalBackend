@@ -89,4 +89,18 @@ class OrdersController extends Controller
         $order->delete();
         return $this->apiresponse([], "Order deleted successfully", 200);
     }
+
+
+
+
+    public function getOrdersByServiceCenterId($service_center_id)
+    {
+        $orders = Order::where('service_center_id', $service_center_id)->get();
+
+        if ($orders->isEmpty()) {
+            return $this->apiresponse([], "No orders found for the specified service center ID", 404);
+        }
+
+        return $this->apiresponse($orders, "Orders found for the specified service center ID", 200);
+    }
 }
