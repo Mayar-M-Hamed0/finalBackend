@@ -1,4 +1,15 @@
- public function index()
+<?php
+
+namespace App\Http\Controllers\api;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+use App\Models\Contact;
+
+class ContactMessageController extends Controller
+{
+    public function index()
     {
         $contacts = Contact::all();
         return response()->json($contacts);
@@ -14,7 +25,7 @@
     {
         $request->validate([
             'name' => 'required|string',
-            'phone' => 'required|string',
+            'phone' => ['regex:/^01[0-2]{1}[0-9]{8}$/'],
             'message' => 'required|string',
         ]);
 
@@ -30,8 +41,8 @@
      */
     public function show($id)
     {
-        $contact = Contact::findOrFail($id);
-        return response()->json($contact);
+        $contactMessage = ContactMessage::findOrFail($id);
+        return response()->json($contactMessage);
     }
 
     /**

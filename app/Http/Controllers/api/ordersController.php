@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\orderResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Order;
@@ -13,44 +14,50 @@ class OrdersController extends Controller
 
     public function index()
     {
+
+        $this->authorize('index', Order::class);
+
         $orders = Order::all();
-        if ($orders->isEmpty()) {
-            return "No orders available!";
-        } else {
-            return $this->apiresponse($orders, "ok", 200);
-        }
+        // if ($orders->isEmpty()) {
+        //     return "No orders available!";
+        // } else {
+            return orderResource::collection($orders);
+        // }
     }
 
     public function store(Request $request)
     {
+        $this->authorize('create', Order::class);
+
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
-            'order_details' => 'required',
+
             'service_center_id' => 'required',
             'order_date' => 'required',
             'order_state' => 'required',
             'phone' => 'required',
             'car_model' => 'required',
-            'services' => 'array|required', 
+            'services' => 'array|required',
         ]);
 
         if ($validator->fails()) {
-            return response($validator->errors()->all(), 422);
+            return response()->json(['errors' => $validator->errors()->messages()], 422);
         }
 
-        $order = Order::create([
-            'user_id' => $request->user_id,
-            'order_details' => $request->order_details,
-            'service_center_id' => $request->service_center_id,
-            'order_date' => $request->order_date,
-            'phone' => $request->phone,
-            'car_model' => $request->car_model,
-            'order_state' => $request->order_state,
-        ]);
+        $order = Order::create($request->all());
+        // ([
+        //     'user_id' => $request->user_id,
+        //     'order_details' => $request->order_details,
+        //     'service_center_id' => $request->service_center_id,
+        //     'order_date' => $request->order_date,
+        //     'phone' => $request->phone,
+        //     'car_model' => $request->car_model,
+        //     'order_state' => $request->order_state,
+        // ]);
 
         $order->services()->attach($request->input('services'));
 
-        return $this->apiresponse($order, "Order created successfully", 201);
+        return response()->json(['message' => 'Order created successfully', 'data' => $order],201);
     }
 
     public function show(Order $order)
@@ -67,7 +74,7 @@ class OrdersController extends Controller
             'order_date' => 'required',
             'phone' => 'required',
             'car_model' => 'required',
-            'services' => 'array|required', 
+            'services' => 'array|required',
         ]);
 
         if ($validator->fails()) {
@@ -101,4 +108,16 @@ class OrdersController extends Controller
 
         return $this->apiresponse($orders, "Orders found for the specified service center ID", 200);
     }
+
+
+    public function getOrdersByUserId($user_id)
+{
+    $orders = Order::where('user_id', $user_id)->get();
+
+    if ($orders->isEmpty()) {
+        return $this->apiresponse([], "No orders found for the specified user ID", 404);
+    }
+
+    return $this->apiresponse($orders, "Orders found for the specified user ID", 200);
+}
 }
