@@ -52,7 +52,7 @@ class OrdersController extends Controller
 
         $order->services()->attach($request->input('services'));
 
-        return response()->json(['message' => 'Ordet created successfully', 'data' => $order],201);
+        return response()->json(['message' => 'Order created successfully', 'data' => $order],201);
     }
 
     public function show(Order $order)
