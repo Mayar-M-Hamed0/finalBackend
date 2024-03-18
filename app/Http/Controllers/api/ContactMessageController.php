@@ -39,6 +39,11 @@ class ContactMessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function show($id)
+    {
+        $contactMessage = Contact::findOrFail($id);
+        return response()->json($contactMessage);
+    }
 
     /**
      * Update the specified resource in storage.
