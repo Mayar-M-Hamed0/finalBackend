@@ -60,13 +60,12 @@ public function all()
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:255',
             'location' => 'required|string',
-
             'services' => 'required|array', 
             'cars' => 'required|array', 
         ]);
     
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
+            return response()->json(['data' => $validator->errors()], 422);
         }
         
        $user_id = $request->user()->id;
@@ -134,7 +133,7 @@ public function show($id)
 
 
          $validator = Validator::make($request->all(), [
-             'car_name' => 'required|string|max:255',
+            'cars' => 'required|array', 
              'name' => 'required|string|max:255',
              'phone' => 'required|string|max:255',
              'rating' => 'required|numeric',

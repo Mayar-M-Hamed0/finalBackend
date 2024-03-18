@@ -69,7 +69,8 @@ Route::get("orderByServiceCenter/{id}" , [OrdersController::class,'getOrdersBySe
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
 
 
-// دي هتجيب السنجل 
+// دي هتجيب السنجل  
+
 Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
 // دا هيعرض كله
 Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
