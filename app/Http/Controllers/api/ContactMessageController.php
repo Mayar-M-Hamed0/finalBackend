@@ -41,7 +41,7 @@ class ContactMessageController extends Controller
      */
     public function show($id)
     {
-        $contactMessage = ContactMessage::findOrFail($id);
+        $contactMessage = Contact::findOrFail($id);
         return response()->json($contactMessage);
     }
 
