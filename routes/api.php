@@ -57,6 +57,11 @@ Route::apiResource("reviews",ReviewController::class);
 
 Route::apiResource("orders",ordersController::class);
 
+//gert the order in specific center id
+Route::get("orderByServiceCenter/{id}" , [OrdersController::class,'getOrdersByServiceCenterId']);
+
+
+
 
 //  agent only create 
 // only agent create service can delete or update this service
