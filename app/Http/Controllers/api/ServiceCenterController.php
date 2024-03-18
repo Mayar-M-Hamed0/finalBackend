@@ -16,10 +16,18 @@ class ServiceCenterController extends Controller
     use traitapi\apitrait;
    
 //  all data for web site
-    public function all(){
-        $serviceCenters = ServiceCenter::all();
-        return response()->json($serviceCenters);
-    }
+public function all()
+{
+    $serviceCenters = ServiceCenter::with(['services' => function ($query) {
+        $query->select('service_name', 'service_details');
+    }])->with(['cars' => function ($query) {
+        $query->select('car_name');
+    }])->get();
+
+
+
+    return response()->json($serviceCenters);
+}
 
 
 
@@ -53,7 +61,6 @@ class ServiceCenterController extends Controller
             'image' => 'nullable|string|max:255',
             'location' => 'required|string',
 
-
             'services' => 'required|array', 
             'cars' => 'required|array', 
         ]);
@@ -86,28 +93,38 @@ class ServiceCenterController extends Controller
     
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter],201);
     }
-
 //  show retutn service only created this service !!
-    public function show(ServiceCenter $serviceCenter)
-    {
-        $this->authorize('view', $serviceCenter);
+public function show($id)
+{
+    $serviceCenter = ServiceCenter::with(['services' => function ($query) {
+        $query->select( 'service_name', 'service_details'); // Specify 'services.id'
+    }])->with(['cars' => function ($query) {
+        $query->select( 'car_name'); // Specify 'cars.id'
+    }])->find($id);
+    // Authorize the view action against the $serviceCenter
+    $this->authorize('view', $serviceCenter);
 
-        
-        return response()->json($serviceCenter);
-    }
+    return response()->json($serviceCenter);
+}
+
 
 
     //  retturn single service for all user 
     public function singleitem($id)
-    {
-        $serviceCenter = ServiceCenter::find($id);
-    
-        if (!$serviceCenter) {
-            return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
-        }
-    
-        return response()->json($serviceCenter);
+{
+    $serviceCenter = ServiceCenter::with(['services' => function ($query) {
+        $query->select('service_name', 'service_details');
+    }])->with(['cars' => function ($query) {
+        $query->select('car_name');
+    }])->find($id);
+
+
+    if (!$serviceCenter) {
+        return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
     }
+
+    return response()->json($serviceCenter);
+}
     
 
    
