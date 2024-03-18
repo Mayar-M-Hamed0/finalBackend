@@ -22,7 +22,7 @@ class orderResource extends JsonResource
             'service_name' => $this->services->pluck('service_name'),
             "location"=>$this->serviceCenter->location,
             "phone"=>$this->phone,
-            "notice"=>$this->notice
+            "notice"=>$this->order_details
         ];
         // return parent::toArray($request);
     }

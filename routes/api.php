@@ -123,13 +123,8 @@ Route::resource('cars', 'App\Http\Controllers\api\CarController');
 Route::apiResource('admins', AgentController::class)->middleware(['auth:sanctum', 'checkrole:admin']);
 
 
-//contact 
 
 
 
-//  end point auth middleware role == admin for acsses messge !! ?
 Route::get("GetContact",[ContactMessageController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
-
-
-//  end point send contact
 Route::post("PostContact",[ContactMessageController::class,'store']);
