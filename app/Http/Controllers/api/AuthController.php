@@ -45,7 +45,7 @@ class AuthController extends Controller
             'phone' => ['regex:/^01[0-2]{1}[0-9]{8}$/'],
             "image" => 'max:1000','mimes:png,jpg,jpeg',
             'password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'],
-            "role" => ['required'],
+            
         ]);
     
         if ($validator->fails()) {
@@ -58,8 +58,6 @@ class AuthController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'image' => $request->image,
-            'role' => $request->role,
-            
             'password' => Hash::make($request->password),
         ]);
     
