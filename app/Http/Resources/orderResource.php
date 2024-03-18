@@ -20,8 +20,9 @@ class orderResource extends JsonResource
             "email"=>$this->user->email,
             "img"=>$this->user->image,
             'service_name' => $this->services->pluck('service_name'),
-            "location"=>$this->serviceCenter->name,
-            "phone"=>$this->phone
+            "location"=>$this->serviceCenter->location,
+            "phone"=>$this->phone,
+            "notice"=>$this->notice
         ];
         // return parent::toArray($request);
     }
