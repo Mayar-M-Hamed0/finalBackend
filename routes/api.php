@@ -121,4 +121,6 @@ Route::apiResource('admins', AgentController::class);
 
 
 //contact 
-Route::apiResource('contacts', ContactMessageController::class);
+
+Route::get("GetContact",[ContactMessageController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
+Route::post("PostContact",[ContactMessageController::class,'store']);
