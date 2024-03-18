@@ -45,6 +45,7 @@ class AuthController extends Controller
             'phone' => ['regex:/^01[0-2]{1}[0-9]{8}$/'],
             "image" => 'max:1000','mimes:png,jpg,jpeg',
             'password' => ['required', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'],
+            
         ]);
     
         if ($validator->fails()) {
