@@ -33,7 +33,7 @@ Route::post("register",[AuthController::class,"register"]);
 Route::post("login",[AuthController::class,"login"]);
 Route::post("logout",[AuthController::class,"logout"])->middleware("auth:sanctum");
 
-// 
+//
 
 
 
@@ -56,7 +56,7 @@ Route::apiResource("reviews",ReviewController::class);
 
   */
 
-Route::apiResource("orders",ordersController::class)->middleware(['auth:sanctum']);
+Route::apiResource("orders",ordersController::class); //->middleware(['auth:sanctum']);
 
 //get the order in specific center id
 Route::get("orderByServiceCenter/{id}" , [ordersController::class,'getOrdersByServiceCenterId']);
@@ -68,13 +68,13 @@ Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])
 
 
 
-//  agent only create 
+//  agent only create
 // only agent create service can delete or update this service
 
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
 
 
-// دي هتجيب السنجل  
+// دي هتجيب السنجل
 
 Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
 // دا هيعرض كله
@@ -88,11 +88,11 @@ Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 
 
 
-// GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index  
-// POST            api/services .............................................................................. services.store › api\ServiceCenterController@store  
-// GET|HEAD        api/services/{service} ...................................................................... services.show › api\ServiceCenterController@show  
-// PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update  
-// DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy  
+// GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index
+// POST            api/services .............................................................................. services.store › api\ServiceCenterController@store
+// GET|HEAD        api/services/{service} ...................................................................... services.show › api\ServiceCenterController@show
+// PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update
+// DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy
 
 Route::get("orders-archeive",[ordersController::class,"archeive"]);
 Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
