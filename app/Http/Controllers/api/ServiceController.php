@@ -36,8 +36,8 @@ class ServiceController extends Controller
         $validator = Validator::make($request->all(), [
             'service_name' => 'required|string|max:255',
             'service_details' => 'required|string',
-            'image' => 'nullable|string|max:255',
-            'price' => 'max:6',
+            // 'image' => 'nullable|string|max:255',
+            // 'price' => 'max:6',
         ]);
 
         if ($validator->fails()) {
@@ -48,12 +48,12 @@ class ServiceController extends Controller
             'user_id' => $userId,
             'service_name' => $request->service_name,
             'service_details' => $request->service_details,
-            'image' => $request->image,
-            'price' => $request->price,
+            // 'image' => $request->image,
+            // 'price' => $request->price,
 
         ]);
 
-        return $this->apiresponse($service, "Service created successfully", 201);
+        return response()->json(['message' => 'Service center created successfully', 'data' => $service ],201);
     }
 
     public function show(Service $service)
