@@ -71,7 +71,7 @@ Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])
 //  agent only create
 // only agent create service can delete or update this service
 
-Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
+Route::apiResource("service-center" , ServiceCenterController::class); //->middleware(['auth:sanctum']);
 
 
 // دي هتجيب السنجل
