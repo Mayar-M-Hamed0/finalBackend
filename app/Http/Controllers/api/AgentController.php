@@ -25,7 +25,6 @@ class AgentController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'phone' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'role' => 'required|in:user,admin,agent', 
         ]);
@@ -71,7 +70,7 @@ class AgentController extends Controller
             'name' => 'string|max:255',
             'email' => 'string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'string|min:8',
-            'phone' => 'string|max:255',
+            'phone' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'role' => 'in:user,admin,agent', 
         ]);
