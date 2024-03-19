@@ -99,6 +99,10 @@ class OrdersController extends Controller
         $order=order::onlyTrashed()->where('service_center_id', $service_center_id)->get();
         return orderResource::collection($order);
     }
+    public function userarcheive($user_id){
+        $order=order::onlyTrashed()->where('user_id', $user_id)->get();
+        return orderResource::collection($order);
+    }
     public function restore($id){
         order::withTrashed()->where('id',$id)->restore();
     }

@@ -95,6 +95,7 @@ Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 // DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy
 
 Route::get("showorders-archeive/{id}",[ordersController::class,"archeive"]);
+Route::get("showuserorders-archeive/{id}",[ordersController::class,"userarcheive"]);
 Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
 Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 
