@@ -135,3 +135,8 @@ Route::post("PostContact",[ContactMessageController::class,'store']);
 //get all agent users
 Route::get('Getagents', [AgentController::class, 'listAgents'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::delete('Delagents/{id}', [AgentController::class, 'deleteAgent'])->middleware('auth:sanctum', 'checkrole:admin');
+
+
+//services
+Route::get('services', [ServiceController::class, 'index'])->middleware('auth:sanctum', 'checkrole:agent');
+Route::post('services', [ServiceController::class, 'store'])->middleware('auth:sanctum', 'checkrole:agent');
