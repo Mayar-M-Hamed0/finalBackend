@@ -123,11 +123,10 @@ public function index()
 
 
 
-// login method
 
 
 
-    // logout
+
 
    
 }

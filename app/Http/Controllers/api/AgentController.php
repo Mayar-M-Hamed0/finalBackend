@@ -25,7 +25,6 @@ class AgentController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'phone' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'role' => 'required|in:user,admin,agent', 
         ]);
@@ -71,7 +70,7 @@ class AgentController extends Controller
             'name' => 'string|max:255',
             'email' => 'string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'string|min:8',
-            'phone' => 'string|max:255',
+            'phone' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'role' => 'in:user,admin,agent', 
         ]);
@@ -96,4 +95,46 @@ class AgentController extends Controller
         $user->delete();
         return response()->json(['message' => 'User deleted successfully'], 200);
     }
+
+
+
+
+    
+    // public function listAgents()
+    // {
+       
+    //     $role = User::where('role', 'agent')->first();
+    
+    //     if (!$role) {
+    //         return response()->json(['message' => 'agents not found'], 404);
+    //     }
+    
+    //     $agents = $role->users;
+    
+    //     return response()->json($agents);
+    // }
+
+
+
+    public function listAgents()
+    {
+        $agents = User::where('role', 'agent')->get();
+        return response()->json($agents);
+    }
+
+
+    public function deleteAgent($id)
+    {
+       
+        $agent = User::findOrFail($id);
+        if ($agent->role !== 'agent') {
+            return response()->json(['message' => 'User is not an agent'], 404);
+        }
+
+        $agent->delete();
+
+        return response()->json(['message' => 'Agent deleted successfully'], 200);
+    }
 }
+
+
