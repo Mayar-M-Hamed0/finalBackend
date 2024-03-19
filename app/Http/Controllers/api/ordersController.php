@@ -106,7 +106,9 @@ class OrdersController extends Controller
     public function restore($id){
         order::withTrashed()->where('id',$id)->restore();
     }
-
+    public function forcedelete($id){
+        order::withTrashed()->where('id',$id)->forceDelete();
+    }
 
     public function getOrdersByServiceCenterId($service_center_id)
     {
