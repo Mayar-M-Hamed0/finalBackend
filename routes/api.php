@@ -94,7 +94,7 @@ Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 // PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update
 // DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy
 
-Route::get("orders-archeive",[ordersController::class,"archeive"]);
+Route::get("showorders-archeive/{id}",[ordersController::class,"archeive"]);
 Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
 Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 

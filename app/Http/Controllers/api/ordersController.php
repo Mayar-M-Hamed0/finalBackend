@@ -94,7 +94,13 @@ class OrdersController extends Controller
         return $this->apiresponse([], "Order deleted successfully", 200);
     }
 
-
+    public function archeive($service_center_id){
+        $order=order::onlyTrashed()->where('service_center_id', $service_center_id)->get();
+        return orderResource::collection($order);
+    }
+    public function restore($id){
+        order::withTrashed()->where('id',$id)->restore();
+    }
 
 
     public function getOrdersByServiceCenterId($service_center_id)
