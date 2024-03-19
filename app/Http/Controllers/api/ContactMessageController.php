@@ -23,6 +23,7 @@ class ContactMessageController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'name' => 'required|string',
             'phone' => ['regex:/^01[0-2]{1}[0-9]{8}$/'],
