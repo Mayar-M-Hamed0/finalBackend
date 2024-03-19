@@ -34,8 +34,8 @@ public function all()
 
 
     public function index(){
-       // $this->authorize('create', ServiceCenter::class);
-    //  $user_id = Auth::id();
+       $this->authorize('create', ServiceCenter::class);
+     $user_id = Auth::id();
 
     $userServices = ServiceCenter::where('user_id', $user_id)->get();
 
