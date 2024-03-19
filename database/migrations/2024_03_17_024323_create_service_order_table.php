@@ -11,17 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('service_order', function (Blueprint $table) {
             $table->id();
-            $table->string('service_name');
-            $table->string('service_details');
-            $table->string('image')->nullable();
+            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('service_id');
             $table->timestamps();
 
-
-            
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('service_order');
     }
 };

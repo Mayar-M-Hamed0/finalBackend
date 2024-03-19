@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Providers;
+use App\Models\User;
+use App\Policies\UserPolicy;
+use App\Policies\ServiceCenterPolicy;
 
-// use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,6 +16,12 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
+        ServiceCenterPolicy::class => ServiceCenterPolicy::class,
+
+
+        User::class => UserPolicy::class,
+     
+
         //
     ];
 
@@ -21,6 +30,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+     
     }
 }

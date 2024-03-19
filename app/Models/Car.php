@@ -17,6 +17,7 @@ class Car extends Model
 
     public function serviceCenters()
     {
-        return $this->belongsToMany(ServiceCenter::class, 'service_center_cars');
-    }
+        return $this->belongsToMany(ServiceCenter::class, 'service_center_cars')
+        ->using(ServiceCenterCar::class);
+        }
 }

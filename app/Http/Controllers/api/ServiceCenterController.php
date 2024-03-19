@@ -1,33 +1,57 @@
 <?php
 
 namespace App\Http\Controllers\api;
+
+use Illuminate\Support\Facades\Auth;
+
+
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\ServiceCenter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ServiceCenterController extends Controller
 {
     use traitapi\apitrait;
    
-    public function index()
-    {
-        $serviceCenters = ServiceCenter::all();
-        if ($serviceCenters->isEmpty()) {
-            return "No Services here !";
-        } else {
-            return $this->apiresponse($serviceCenters, "ok", 200);
-        }
-        
+//  all data for web site
+public function all()
+{
+    $serviceCenters = ServiceCenter::with(['services' => function ($query) {
+        $query->select('service_name', 'service_details');
+    }])->with(['cars' => function ($query) {
+        $query->select('car_name');
+    }])->get();
+
+
+
+    return response()->json($serviceCenters);
+}
+
+
+
+
+
+    public function index(){
+        $this->authorize('create', ServiceCenter::class);
+     $user_id = Auth::id();
+
+    $userServices = ServiceCenter::where('user_id', $user_id)->get();
+
+    return response()->json($userServices);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
+
     public function store(Request $request)
     {
+        $this->authorize('create', ServiceCenter::class);
+
+
+
         $validator = Validator::make($request->all(), [
-            'car_name' => 'required|string|max:255',
+          
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'rating' => 'required|numeric',
@@ -35,67 +59,105 @@ class ServiceCenterController extends Controller
             'working_hours' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|string|max:255',
+            'location' => 'required|string',
+            'services' => 'required|array', 
+            'cars' => 'required|array', 
         ]);
-
+    
         if ($validator->fails()) {
-            return response($validator->errors()->all());
+            return response()->json(['data' => $validator->errors()], 422);
         }
+        
+       $user_id = $request->user()->id;
 
-         // Create the user
-         $serviceCenter = ServiceCenter::create([
-            'car_name'=> $request->car_name,
+        $serviceCenter = ServiceCenter::create([
+            'user_id' => $user_id,
+            'car_name' => $request->car_name,
             'name' => $request->name,
             'phone' => $request->phone,
             'rating' => $request->rating,
             'working_days' => $request->working_days,
-            'working_hours'=> $request->working_hours,
-            'description'=>$request ->description,
-            'image' => $request -> image
-
+            'working_hours' => $request->working_hours,
+            'description' => $request->description,
+            'image' => $request->image,
+            'location' => $request->location,
         ]);
+        
+        
+        
+        $serviceCenter->services()->attach($request->input('services'));
     
-        return $this->apiresponse($serviceCenter, "ok", 201);
+        
+        $serviceCenter->cars()->attach($request->input('cars'));
+    
+        return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter],201);
+    }
+//  show retutn service only created this service !!
+public function show($id)
+{
+    $serviceCenter = ServiceCenter::with(['services' => function ($query) {
+        $query->select( 'service_name', 'service_details'); // Specify 'services.id'
+    }])->with(['cars' => function ($query) {
+        $query->select( 'car_name'); // Specify 'cars.id'
+    }])->find($id);
+    // Authorize the view action against the $serviceCenter
+    $this->authorize('view', $serviceCenter);
+
+    return response()->json($serviceCenter);
+}
+
+
+
+    //  retturn single service for all user 
+    public function singleitem($id)
+{
+    $serviceCenter = ServiceCenter::with(['services' => function ($query) {
+        $query->select('service_name', 'service_details');
+    }])->with(['cars' => function ($query) {
+        $query->select('car_name');
+    }])->find($id);
+
+
+    if (!$serviceCenter) {
+        return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ServiceCenter $serviceCenter)
-    {
-       return $serviceCenter;
+    return response()->json($serviceCenter);
+}
+    
+
+   
+     public function update(Request $request, ServiceCenter $serviceCenter)
+     {
+        $this->authorize('update', $serviceCenter);
+
+
+         $validator = Validator::make($request->all(), [
+            'cars' => 'required|array', 
+             'name' => 'required|string|max:255',
+             'phone' => 'required|string|max:255',
+             'rating' => 'required|numeric',
+             'working_days' => 'required|string|max:255',
+             'working_hours' => 'required|string|max:255',
+             'description' => 'nullable|string',
+             'image' => 'nullable|string|max:255',
+         ]);
+     
+         if($validator->fails()){
+             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
+         }
+     
+         $serviceCenter->update($request->all());
+         return $this->apiresponse($serviceCenter, "Service updated successfully", 200); 
      }
-    
+     
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ServiceCenter $serviceCenter)
-    {
-        $validator = Validator::make($request->all(), [
-            'car_name' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'rating' => 'required|numeric',
-            'working_days' => 'required|string|max:255',
-            'working_hours' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|string|max:255',
-        ]);
-
-        if($validator->fails()){
-            return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
-        }
-
-        $serviceCenter->update($request->all());
-        return  $this->apiresponse($serviceCenter,"Service updated succcfully",201); 
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(ServiceCenter $serviceCenter)
     {
+        $this->authorize('delete', $serviceCenter);
         $serviceCenter->delete();
-        return $this->apiresponse($serviceCenter,"Service delete succcfully",201); 
+        return $this->apiresponse($serviceCenter, "Service deleted successfully", 200); 
     }
+    
 }

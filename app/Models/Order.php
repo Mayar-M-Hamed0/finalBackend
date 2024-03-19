@@ -12,7 +12,7 @@ class Order extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'user_id', 'service_center_id', 'order_details', 'order_state', 'order_date',
+        'user_id', 'service_center_id', 'order_details', 'order_state', 'order_date','phone','car_model',
     ];
 
     public function user()
@@ -23,5 +23,11 @@ class Order extends Model
     public function serviceCenter()
     {
         return $this->belongsTo(ServiceCenter::class);
+    }
+
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'service_order', 'order_id', 'service_id');
     }
 }

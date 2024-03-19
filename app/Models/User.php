@@ -19,12 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
          'name',
-        // 'lname',
         'email',
         'phone',
         'image',
         'password',
-        // 'role',
+        'role',
         'remember_token',
     ];
 
@@ -35,7 +34,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'remember_token',
-        // 'role',
+        
     ];
 
     /**
@@ -47,4 +46,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+    public function serviceCenters()
+    {
+        return $this->hasMany(ServiceCenter::class);
+    }
+    
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
+    }
 }

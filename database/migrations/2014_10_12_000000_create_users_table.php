@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+   
+
+
+
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -19,7 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('image')->nullable();
             $table->unsignedBigInteger('phone')->nullable();
-            $table->enum('role', ['user', 'admin'])->default('user');
+            
+            $table->enum('role', ['user', 'admin','agent'])->default('user');
 
             $table->rememberToken();
             $table->timestamps();
