@@ -17,11 +17,11 @@ class OrdersController extends Controller
 
 
         $orders = Order::all();
-        // if ($orders->isEmpty()) {
-        //     return "No orders available!";
-        // } else {
+         if ($orders->isEmpty()) {
+             return "No orders available!";
+         } else {
             return orderResource::collection($orders);
-        // }
+         }
     }
 
     public function store(Request $request)
@@ -32,6 +32,7 @@ class OrdersController extends Controller
             'user_id' => 'required',
 
             'service_center_id' => 'required',
+            'order_details' => 'required',
             'order_date' => 'required',
             'order_state' => 'required',
             'phone' => 'required',
@@ -44,15 +45,15 @@ class OrdersController extends Controller
         }
 
         $order = Order::create($request->all());
-        // ([
-        //     'user_id' => $request->user_id,
-        //     'order_details' => $request->order_details,
-        //     'service_center_id' => $request->service_center_id,
-        //     'order_date' => $request->order_date,
-        //     'phone' => $request->phone,
-        //     'car_model' => $request->car_model,
-        //     'order_state' => $request->order_state,
-        // ]);
+        ([
+            'user_id' => $request->user_id,
+            'order_details' => $request->order_details,
+            'service_center_id' => $request->service_center_id,
+            'order_date' => $request->order_date,
+            'phone' => $request->phone,
+            'car_model' => $request->car_model,
+            'order_state' => $request->order_state,
+        ]);
 
         $order->services()->attach($request->input('services'));
 
