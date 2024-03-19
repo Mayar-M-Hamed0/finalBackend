@@ -30,6 +30,7 @@ class ServiceController extends Controller
             'service_name' => 'required|string|max:255',
             'service_details' => 'required|string',
             'image' => 'nullable|string|max:255',
+            'price' => 'max:6',
         ]);
 
         if ($validator->fails()) {
@@ -41,6 +42,8 @@ class ServiceController extends Controller
             'service_name' => $request->service_name,
             'service_details' => $request->service_details,
             'image' => $request->image,
+            'price' => $request->price,
+
         ]);
 
         return $this->apiresponse($service, "Service created successfully", 201);
@@ -57,6 +60,7 @@ class ServiceController extends Controller
             'service_name' => 'required|string|max:255',
             'service_details' => 'required|string',
             'image' => 'nullable|string|max:255',
+            'price' => 'max:6',
         ]);
 
         if ($validator->fails()) {
@@ -67,6 +71,8 @@ class ServiceController extends Controller
             'service_name' => $request->service_name,
             'service_details' => $request->service_details,
             'image' => $request->image,
+            'price' => $request->price,
+          
         ]);
 
         return $this->apiresponse($service, "Service updated successfully", 200);

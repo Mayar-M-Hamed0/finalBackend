@@ -11,7 +11,7 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'service_name', 'service_details', 'image', 'user_id',
+        'service_name', 'service_details', 'image', 'user_id' , 'price',
     ];
 
     public function serviceCenters()
