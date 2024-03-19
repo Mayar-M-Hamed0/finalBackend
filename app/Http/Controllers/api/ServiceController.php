@@ -83,4 +83,18 @@ class ServiceController extends Controller
         $service->delete();
         return $this->apiresponse([], "Service deleted successfully", 200);
     }
+
+
+    public function getServicesByUserId($user_id)
+{
+    $services = Service::where('user_id', $user_id)
+        ->select('service_name', 'service_details', 'price')
+        ->get();
+
+    if ($services->isEmpty()) {
+        return response()->json(['message' => 'No services found'], 404);
+    }
+
+    return response()->json($services, 200);
+}
 }

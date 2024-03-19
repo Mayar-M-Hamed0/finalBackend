@@ -74,8 +74,9 @@ Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
 
 
-// دي هتجيب السنجل  
 
+
+// دي هتجيب السنجل  
 Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
 // دا هيعرض كله
 Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
@@ -138,5 +139,5 @@ Route::delete('Delagents/{id}', [AgentController::class, 'deleteAgent'])->middle
 
 
 //services
-Route::get('services', [ServiceController::class, 'index'])->middleware('auth:sanctum', 'checkrole:agent');
-Route::post('services', [ServiceController::class, 'store'])->middleware('auth:sanctum', 'checkrole:agent');
+Route::get('service/{id}', [ServiceController::class, 'getServicesByUserId'])->middleware('auth:sanctum', 'checkrole:agent');
+Route::post('service', [ServiceController::class, 'store'])->middleware('auth:sanctum', 'checkrole:agent');
