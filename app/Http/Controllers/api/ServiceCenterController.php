@@ -47,18 +47,15 @@ public function all()
     public function store(Request $request)
     {
         $this->authorize('create', ServiceCenter::class);
-
-
-
+    
         $validator = Validator::make($request->all(), [
-          
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'rating' => 'required|numeric',
             'working_days' => 'required|string|max:255',
             'working_hours' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|string|max:255',
+            'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
             'services' => 'required|array', 
             'cars' => 'required|array', 
@@ -67,31 +64,37 @@ public function all()
         if ($validator->fails()) {
             return response()->json(['data' => $validator->errors()], 422);
         }
-        
-       $user_id = $request->user()->id;
-
+    
+        $user_id = $request->user()->id;
+    
+  
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/' . $imageName; 
+        }
+    
         $serviceCenter = ServiceCenter::create([
             'user_id' => $user_id,
-            'car_name' => $request->car_name,
+            'car_name' => $request->cars,
             'name' => $request->name,
             'phone' => $request->phone,
             'rating' => $request->rating,
             'working_days' => $request->working_days,
             'working_hours' => $request->working_hours,
             'description' => $request->description,
-            'image' => $request->image,
+            'image' => $imagePath, 
             'location' => $request->location,
         ]);
-        
-        
-        
-        $serviceCenter->services()->attach($request->input('services'));
     
-        
+        $serviceCenter->services()->attach($request->input('services'));
         $serviceCenter->cars()->attach($request->input('cars'));
     
-        return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter],201);
+        return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
+    
 //  show retutn service only created this service !!
 
 
