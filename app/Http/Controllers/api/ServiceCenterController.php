@@ -58,8 +58,9 @@ public function all()
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
-            'services' => 'required|array',
-            'cars' => 'required|array',
+             'price' => 'required',
+            // 'services' => 'required|array',
+            // 'cars' => 'required|array',
         ]);
 
         if ($validator->fails()) {
@@ -94,6 +95,7 @@ public function all()
             'description' => $request->description,
             'image' => $imagePath, 
             'location' => $request->location,
+            'price' => $request->price,
         ]);
 
     
@@ -165,6 +167,7 @@ public function show($id)
              'working_hours' => 'required|string|max:255',
              'description' => 'nullable|string',
              'image' => 'nullable|string|max:255',
+             'price' => 'required',
          ]);
 
          if($validator->fails()){

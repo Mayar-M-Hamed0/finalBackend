@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('location');
             $table->string('description')->nullable();
             $table->string('image')->nullable();
+            $table->integer('price');
+
             $table->timestamps();
 
 
