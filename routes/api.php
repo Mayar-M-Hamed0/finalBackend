@@ -137,6 +137,5 @@ Route::delete('Delagents/{id}', [AgentController::class, 'deleteAgent'])->middle
 
 
 //services
-
 Route::get('services', [ServiceController::class, 'index'])->middleware('auth:sanctum', 'checkrole:agent');
 Route::post('services', [ServiceController::class, 'store'])->middleware('auth:sanctum', 'checkrole:agent');

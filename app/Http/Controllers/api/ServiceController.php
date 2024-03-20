@@ -7,8 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+
 use App\Models\Service;
-use App\Models\ServiceCenter;
+
 
 class ServiceController extends Controller
 {
@@ -16,16 +17,22 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $services = Service::all();
-        if ($services->isEmpty()) {
-            return "No services available!";
-        } else {
-            return $this->apiresponse($services, "ok", 200);
-        }
+        $this->authorize('create', Service::class);
+        
+        $user_id = Auth::id();
+   
+       $userServices = Service::where('user_id', $user_id)->get();
+   
+       return response()->json($userServices);
     }
 
     public function store(Request $request)
     {
+
+        $this->authorize('create', Service::class);
+
+
+
         $validator = Validator::make($request->all(), [
             'service_name' => 'required|string|max:255',
             'service_details' => 'required|string',
@@ -38,7 +45,7 @@ class ServiceController extends Controller
         }
         $userId = auth()->id();
         $service = Service::create([
-            //'user_id' => $userId,
+            'user_id' => $userId,
             'service_name' => $request->service_name,
             'service_details' => $request->service_details,
             // 'image' => $request->image,
