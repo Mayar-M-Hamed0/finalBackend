@@ -65,8 +65,14 @@ public function all()
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
+
             'services' => 'required|array', 
             'cars' => 'required|array', 
+
+             'price' => 'required',
+            // 'services' => 'required|array',
+            // 'cars' => 'required|array',
+
         ]);
     
         if ($validator->fails()) {
@@ -94,6 +100,7 @@ public function all()
             'description' => $request->description,
             'image' => $imagePath, 
             'location' => $request->location,
+            'price' => $request->price,
         ]);
     
         $serviceCenter->services()->attach($request->input('services'));
@@ -144,6 +151,7 @@ public function show($id)
 
         $this->authorize('create', ServiceCenter::class);
 
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
@@ -164,6 +172,32 @@ public function show($id)
     
         $imagePath = $serviceCenter->image; 
     
+
+     public function update(Request $request, ServiceCenter $serviceCenter)
+     {
+        $this->authorize('update', $serviceCenter);
+
+
+         $validator = Validator::make($request->all(), [
+            'cars' => 'required|array',
+             'name' => 'required|string|max:255',
+             'phone' => 'required|string|max:255',
+             'rating' => 'required|numeric',
+             'working_days' => 'required|string|max:255',
+             'working_hours' => 'required|string|max:255',
+             'description' => 'nullable|string',
+             'image' => 'nullable|string|max:255',
+             'price' => 'required',
+         ]);
+
+         if($validator->fails()){
+             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
+         }
+
+         $serviceCenter->update($request->all());
+         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
+     }
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
