@@ -10,7 +10,7 @@ use App\Http\Controllers\api\CarController;
 use App\Http\Controllers\api\ordersController;
 use App\Http\Controllers\api\AgentController;
 use App\Http\Controllers\api\ContactMessageController;
-
+use App\Http\Controllers\api\UpdateService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -72,7 +72,9 @@ Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])
 
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
 
-Route::post('service-centerss/{id}', [ServiceCenterController::class,'customUpdate'])->middleware('auth:sanctum');
+
+Route::post('service-centerss/{id}', [UpdateService::class,'customUpdate'])->middleware('auth:sanctum');
+
 
 
 
