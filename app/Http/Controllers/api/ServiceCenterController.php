@@ -66,8 +66,7 @@ public function all()
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
 
-            'services' => 'required|array', 
-            'cars' => 'required|array', 
+          
 
              'price' => 'required',
             // 'services' => 'required|array',
@@ -145,61 +144,41 @@ public function show($id)
 }
     
 
-   
-     public function customUpdate(Request $request, ServiceCenter $serviceCenter)
+public function update(Request $request, ServiceCenter $serviceCenter)
      {
-
-        $this->authorize('create', ServiceCenter::class);
-
-
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'rating' => 'required|numeric',
-            'working_days' => 'required|string|max:255',
-            'working_hours' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|max:2048',
-            'location' => 'required|string',
-            'services' => 'required|array', 
-            'cars' => 'required|array', 
-        ]);
-    
-  
-        if($validator->fails()){
-            return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
-        }
-    
-        $imagePath = $serviceCenter->image; 
-    
-
- 
+        dd($serviceCenter);
+   
+        $this->authorize('update', $serviceCenter);
 
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-            $image->move(public_path('images'), $imageName);
-            $imagePath = 'images/' . $imageName; 
-        }
+         $validator = Validator::make($request->all(), [
         
-         $serviceCenter->update([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'rating' => $request->rating,
-            'working_days' => $request->working_days,
-            'working_hours' => $request->working_hours,
-            'description' => $request->description,
-            'image' => $imagePath, 
-            
-        ]);
+             'name' => 'required|string|max:255',
+             'phone' => 'required|string|max:255',
+             'rating' => 'required|numeric',
+             'working_days' => 'required|string|max:255',
+             'working_hours' => 'required|string|max:255',
+             'description' => 'nullable|string',
+             'image' => 'nullable|string|max:255',
+           
+         ]);
 
-        $serviceCenter->services()->attach($request->input('services'));
-        $serviceCenter->cars()->attach($request->input('cars'));
-        
-         return $this->apiresponse($serviceCenter, "Service updated successfully", 200); 
+         if($validator->fails()){
+             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
+         }
+
+         $serviceCenter->update($request->all());
+         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
      }
+
+   
+
+
+
+
+
      
+  
 
    
     public function destroy(ServiceCenter $serviceCenter)
