@@ -151,7 +151,6 @@ public function show($id)
 
         $this->authorize('create', ServiceCenter::class);
 
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
@@ -172,10 +171,6 @@ public function show($id)
     
         $imagePath = $serviceCenter->image; 
     
-
- 
-
-
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
@@ -208,5 +203,30 @@ public function show($id)
         $serviceCenter->delete();
         return $this->apiresponse($serviceCenter, "Service deleted successfully", 200); 
     }
+
+    public function update(Request $request, ServiceCenter $serviceCenter)
+     {
+        $this->authorize('update', $serviceCenter);
+
+
+         $validator = Validator::make($request->all(), [
+            'cars' => 'required|array',
+             'name' => 'required|string|max:255',
+             'phone' => 'required|string|max:255',
+             'rating' => 'required|numeric',
+             'working_days' => 'required|string|max:255',
+             'working_hours' => 'required|string|max:255',
+             'description' => 'nullable|string',
+             'image' => 'nullable|string|max:255',
+             'price' => 'required',
+         ]);
+
+         if($validator->fails()){
+             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
+         }
+
+         $serviceCenter->update($request->all());
+         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
+     }
 
 }
