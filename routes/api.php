@@ -11,7 +11,6 @@ use App\Http\Controllers\api\ordersController;
 use App\Http\Controllers\api\AgentController;
 use App\Http\Controllers\api\ContactMessageController;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function () {
 
-  Route::put('/users/{user}', [usersController::class, 'update'])->middleware('can:update,user');
+  Route::post('/users/{user}', [usersController::class, 'update'])->middleware('can:update,user');
   // Route::delete("users/{user}",[usersController::class,'destroy'])->middleware('can:update,user');
 });
 
@@ -72,6 +71,9 @@ Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])
 // only agent create service can delete or update this service
 
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
+
+Route::post('service-centerss/{id}', [ServiceCenterController::class,'customUpdate'])->middleware('auth:sanctum');
+
 
 
 // دي هتجيب السنجل

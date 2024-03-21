@@ -81,32 +81,37 @@ public function index()
 
     public function update(Request $request, User $user)
     {
-        //
+     
           $validator = Validator::make($request->all(), [
             "email"=> [Rule::unique('users')->ignore($user->id)],
-             "name"=>"required|min:3",
-             'phone' => ['required', 'regex:/^01[0-2]{1}[0-9]{8}$/'],
-             "image" => 'required','max:1000','mimes:png,jpg,jpeg',
-            "password"=>"required|min:8"
+            'name' => 'required|string|min:3|max:255',
+            'phone' => 'required|string|min:11|max:11',
+            'image' => 'nullable|image|max:2048',
+            "password"=>'required|min:8'
         ]);
+
         if($validator->fails()){
             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
         }
-        
-        if ($request->hasFile('image'))
-        {
-              $file      = $request->file('image');
-              $filename  = $file->getClientOriginalName();
-              $extension = $file->getClientOriginalExtension();
-              $picture   = date('His').'-'.$filename;
-              //move image to public/img folder
-              $file->move(public_path('img'), $picture);
-              return response()->json(["message" => "Image Uploaded Succesfully"]);
-        } 
 
-        $user->update($request->all());
+           $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/' . $imageName; 
+        }
     
-        return   $this->apiresponse(null,"User updated succcfully",201); 
+        $user->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'image' => $imagePath,
+            'password' => bcrypt($request->password)
+        ]);
+
+ 
+    
+        return   $this->apiresponse($user,"User updated succcfully",201); 
 
     }
 
