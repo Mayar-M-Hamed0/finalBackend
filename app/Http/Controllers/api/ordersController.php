@@ -47,7 +47,7 @@ class OrdersController extends Controller
         $order = Order::create($request->all());
         ([
             'user_id' => $request->user_id,
-            'order_details' => $request->order_details,
+            // 'order_details' => $request->order_details,
             'service_center_id' => $request->service_center_id,
             'order_date' => $request->order_date,
             'phone' => $request->phone,
@@ -69,7 +69,7 @@ class OrdersController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
-            'order_details' => 'required',
+            // 'order_details' => 'required',
             'service_center_id' => 'required',
             'order_date' => 'required',
             'phone' => 'required',
@@ -78,7 +78,7 @@ class OrdersController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response($validator->errors()->all(), 422);
+            return response()->json(['errors' => $validator->errors()->messages()], 422);
         }
 
         $order->update($request->all());
@@ -86,7 +86,7 @@ class OrdersController extends Controller
         // Sync the selected services with the order
         $order->services()->sync($request->input('services'));
 
-        return $this->apiresponse($order, "Order updated successfully", 200);
+        return response()->json(['message' => 'Order Updated Successfully', 'data' => $order],201);
     }
 
     public function destroy(Order $order)
