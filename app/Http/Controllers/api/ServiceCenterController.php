@@ -7,14 +7,22 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
-use App\Models\ServiceCenter;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-
+use App\Models\ServiceCenter;
 class ServiceCenterController extends Controller
 {
     use traitapi\apitrait;
    
+
+ 
+
+
+
+
+
+
 //  all data for web site
 public function all()
 {
@@ -78,7 +86,6 @@ public function all()
     
         $serviceCenter = ServiceCenter::create([
             'user_id' => $user_id,
-            'car_name' => $request->cars,
             'name' => $request->name,
             'phone' => $request->phone,
             'rating' => $request->rating,
@@ -132,27 +139,53 @@ public function show($id)
     
 
    
-     public function update(Request $request, ServiceCenter $serviceCenter)
+     public function customUpdate(Request $request, ServiceCenter $serviceCenter)
      {
-        $this->authorize('update', $serviceCenter);
 
+        $this->authorize('create', ServiceCenter::class);
 
-         $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'rating' => 'required|numeric',
+            'working_days' => 'required|string|max:255',
+            'working_hours' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|max:2048',
+            'location' => 'required|string',
+            'services' => 'required|array', 
             'cars' => 'required|array', 
-             'name' => 'required|string|max:255',
-             'phone' => 'required|string|max:255',
-             'rating' => 'required|numeric',
-             'working_days' => 'required|string|max:255',
-             'working_hours' => 'required|string|max:255',
-             'description' => 'nullable|string',
-             'image' => 'nullable|string|max:255',
-         ]);
-     
-         if($validator->fails()){
-             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
-         }
-     
-         $serviceCenter->update($request->all());
+        ]);
+    
+  
+        if($validator->fails()){
+            return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
+        }
+    
+        $imagePath = $serviceCenter->image; 
+    
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/' . $imageName; 
+        }
+        
+         $serviceCenter->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'rating' => $request->rating,
+            'working_days' => $request->working_days,
+            'working_hours' => $request->working_hours,
+            'description' => $request->description,
+            'image' => $imagePath, 
+            
+        ]);
+
+        $serviceCenter->services()->attach($request->input('services'));
+        $serviceCenter->cars()->attach($request->input('cars'));
+        
          return $this->apiresponse($serviceCenter, "Service updated successfully", 200); 
      }
      
