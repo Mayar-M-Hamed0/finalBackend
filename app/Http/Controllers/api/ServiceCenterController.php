@@ -37,14 +37,25 @@ public function all()
 
 
 
-    public function index(){
-       $this->authorize('create', ServiceCenter::class);
-     $user_id = Auth::id();
+public function index()
+{
+    $this->authorize('create', ServiceCenter::class);
+    $user_id = Auth::id();
 
-    $userServices = ServiceCenter::where('user_id', $user_id)->get();
+    $userServices = ServiceCenter::with([
+        'services' => function ($query) {
+            $query->select('service_name', 'service_details');
+        },
+        'cars' => function ($query) {
+            $query->select('car_name');
+        },
+        'days' => function ($query) {
+            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
+        }
+    ])->where('user_id', $user_id)->get();
 
     return response()->json($userServices);
-    }
+}
 
 
     public function store(Request $request)
