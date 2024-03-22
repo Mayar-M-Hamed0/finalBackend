@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->integer('phone');
             $table->float('rating');
-            $table->string('working_days');
-            $table->string('working_hours');
             $table->string('location');
             $table->string('description')->nullable();
             $table->string('image')->nullable();

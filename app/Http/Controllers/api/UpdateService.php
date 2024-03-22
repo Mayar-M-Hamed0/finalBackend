@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\ServiceCenter;
+use App\Models\Day;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 class UpdateService  extends Controller
@@ -22,10 +23,8 @@ class UpdateService  extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'rating' => 'required|numeric',
-            'working_days' => 'required|string|max:255',
-            'working_hours' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|max:2048',
+            // 'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
         ]);
     
@@ -48,14 +47,27 @@ class UpdateService  extends Controller
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'rating' => $request->rating,
-                'working_days' => $request->working_days,
-                'working_hours' => $request->working_hours,
                 'description' => $request->description,
                 'image' => $imagePath,
             ]);
-    
+
+            if ($request->has('days')) {
+                $serviceCenter->days()->delete(); 
+                foreach ($request->days as $dayData) {
+                    $day = Day::create([
+                        'day' => $dayData['day'],
+                        'start_hour' => $dayData['start_hour'],
+                        'end_hour' => $dayData['end_hour'],
+                        'service_center_id' => $serviceCenter->id,
+                    ]);
+                    $serviceCenter->days()->save($day); 
+                }
+            }
         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
     }
+
+
+    
     
 
 }
