@@ -10,6 +10,7 @@ use App\Http\Controllers\api\CarController;
 use App\Http\Controllers\api\ordersController;
 use App\Http\Controllers\api\AgentController;
 use App\Http\Controllers\api\ContactMessageController;
+use App\Http\Controllers\api\mailController;
 use App\Http\Controllers\api\UpdateService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -150,3 +151,8 @@ Route::delete('Delagents/{id}', [AgentController::class, 'deleteAgent'])->middle
 //services
 Route::get('services', [ServiceController::class, 'index'])->middleware('auth:sanctum', 'checkrole:agent');
 Route::post('services', [ServiceController::class, 'store'])->middleware('auth:sanctum', 'checkrole:agent');
+
+
+//send mail
+
+Route::get('/send',[mailController::class,'send']) ->middleware("auth:sanctum");;
