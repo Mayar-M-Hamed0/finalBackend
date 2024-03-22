@@ -28,7 +28,14 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get("alluser",[usersController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::get("users/{user}",[usersController::class,'show'])->middleware('auth:sanctum', 'checkrole:admin');;
 
+// Route::post('/login', [usersController::class, 'login']);
+Route::apiResource("users",usersController::class);
+
+
+
+
 Route::post("register",[AuthController::class,"register"]);
+
 Route::post("login",[AuthController::class,"login"]);
 Route::post("logout",[AuthController::class,"logout"])->middleware("auth:sanctum");
 

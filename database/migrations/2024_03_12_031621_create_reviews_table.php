@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string(column:'Description');
             $table->unsignedBigInteger('user_id');
+           
             $table->unsignedBigInteger('service_center_id');
             $table->timestamps();
 
