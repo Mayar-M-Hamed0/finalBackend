@@ -73,7 +73,7 @@ public function index()
             'price' => 'required',
             'services' => 'required|array',
             'cars' => 'required|array',
-            'days' => 'nullable|array',
+            'days' => 'nullable',
             // 'days' => 'nullable|array',
             // 'days.*.start_hour' => 'required|date_format:H:i',
             // 'days.*.end_hour' => 'required|date_format:H:i',
@@ -113,12 +113,12 @@ public function index()
 
         ]);
 
-        
-    foreach ($request->days as $dayData) {
+        $data=json_decode($request->days);
+    foreach ($data as $dayData) {
         $day = Day::create([
-            'day' => $dayData['day'],
-            'start_hour' => $dayData['start_hour'],
-            'end_hour' => $dayData['end_hour'],
+            'day' => $dayData->day,
+            'start_hour' => $dayData->startTime,
+            'end_hour' => $dayData->endTime,
             'service_center_id' => $serviceCenter->id,
         ]);
         $serviceCenter->days()->save($day);

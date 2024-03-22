@@ -155,4 +155,4 @@ Route::post('services', [ServiceController::class, 'store'])->middleware('auth:s
 
 //send mail
 
-Route::get('/send',[mailController::class,'send']) ->middleware("auth:sanctum");;
+Route::get('/send/{id}',[mailController::class,'send']); //->middleware("auth:sanctum");;

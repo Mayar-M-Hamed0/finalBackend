@@ -7,15 +7,17 @@ use App\Mail\acceptedMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\User;
 
 class mailController extends Controller
 {
 
 
-    public function send()
+    public function send($id)
     {
-         Mail::to(Auth::user()->email)->send(new acceptedMail);
+        $user=user::find($id);
+
+         Mail::to($user->email)->send(new acceptedMail);
          return response()->json(['message' => 'email sended successfully']);
 
     }
