@@ -33,4 +33,10 @@ class ServiceCenter extends Model
     {
         return $this->belongsToMany(Service::class, 'service_center_services');
     }
+
+
+    public function days()
+    {
+        return $this->hasMany(Day::class);
+    }
 }

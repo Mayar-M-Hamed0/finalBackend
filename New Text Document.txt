@@ -1,69 +1,44 @@
- public function index()
     {
-        $contacts = Contact::all();
-        return response()->json($contacts);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'message' => 'required|string',
-        ]);
-
-        $contact = Contact::create($request->all());
-        return response()->json($contact, 201);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $contact = Contact::findOrFail($id);
-        return response()->json($contact);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'message' => 'required|string',
-        ]);
-
-        $contact = Contact::findOrFail($id);
-        $contact->update($request->all());
-        return response()->json($contact, 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $contact = Contact::findOrFail($id);
-        $contact->delete();
-        return response()->json(null, 204);
-    }
-}
+        "id": 5,
+        "name": "mekaniky",
+        "phone": 1234567890,
+        "rating": 4.5,
+        "location": "Service center location",
+        "description": "Service center description",
+        "image": null,
+        "price": 100,
+        "created_at": "2024-03-22T01:40:26.000000Z",
+        "updated_at": "2024-03-22T01:40:26.000000Z",
+        "user_id": 1,
+        "services": [
+            {
+                "service_name": "tire",
+                "service_details": "ads",
+                "pivot": {
+                    "service_center_id": 5,
+                    "service_id": 1
+                }
+            }
+        ],
+        "cars": [
+            {
+                "car_name": "BMW",
+                "pivot": {
+                    "service_center_id": 5,
+                    "car_id": 1
+                }
+            }
+        ],
+        "days": [
+            {
+                "day": "sunday",
+                "start_hour": "09:00:00",
+                "end_hour": "17:00:00",
+            },
+            {
+                "day": "monday",
+                "start_hour": "09:00:00",
+                "end_hour": "17:00:00",
+            }
+        ]
+    },
