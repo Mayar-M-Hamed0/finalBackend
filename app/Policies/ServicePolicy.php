@@ -2,27 +2,26 @@
 
 namespace App\Policies;
 
-use App\Models\ServiceCenter;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class ServiceCenterPolicy
+class ServicePolicy
 {
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user)
     {
+        //
     }
 
-    
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, ServiceCenter $serviceCenter)
+    public function view(User $user, Service $service)
     {
-                return $user->id === $serviceCenter->user_id ;
-
+        return $user->id === $service->user_id ;
     }
 
     /**
@@ -31,29 +30,28 @@ class ServiceCenterPolicy
     public function create(User $user)
     {
         return $user->role === 'agent';
-
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, ServiceCenter $serviceCenter)
+    public function update(User $user, Service $service)
     {
-        return $user->id === $serviceCenter->user_id ;
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, ServiceCenter $serviceCenter)
+    public function delete(User $user, Service $service)
     {
-        return $user->id === $serviceCenter->user_id ;
+        return $user->id === $service->user_id ;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, ServiceCenter $serviceCenter)
+    public function restore(User $user, Service $service)
     {
         //
     }
@@ -61,7 +59,7 @@ class ServiceCenterPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, ServiceCenter $serviceCenter)
+    public function forceDelete(User $user, Service $service)
     {
         //
     }

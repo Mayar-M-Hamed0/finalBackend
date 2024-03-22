@@ -10,7 +10,7 @@ class ServiceCenter extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id','name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image','location',
+        'user_id','name', 'phone', 'rating', 'working_days', 'working_hours', 'description', 'image','location','price',
     ];
 
     public function orders()
@@ -32,5 +32,11 @@ class ServiceCenter extends Model
     public function services()
     {
         return $this->belongsToMany(Service::class, 'service_center_services');
+    }
+
+
+    public function days()
+    {
+        return $this->hasMany(Day::class);
     }
 }

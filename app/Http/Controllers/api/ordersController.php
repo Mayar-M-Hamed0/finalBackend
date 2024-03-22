@@ -17,11 +17,11 @@ class OrdersController extends Controller
 
 
         $orders = Order::all();
-        // if ($orders->isEmpty()) {
-        //     return "No orders available!";
-        // } else {
+         if ($orders->isEmpty()) {
+             return "No orders available!";
+         } else {
             return orderResource::collection($orders);
-        // }
+         }
     }
 
     public function store(Request $request)
@@ -32,6 +32,7 @@ class OrdersController extends Controller
             'user_id' => 'required',
 
             'service_center_id' => 'required',
+            'order_details' => 'required',
             'order_date' => 'required',
             'order_state' => 'required',
             'phone' => 'required',
@@ -44,15 +45,15 @@ class OrdersController extends Controller
         }
 
         $order = Order::create($request->all());
-        // ([
-        //     'user_id' => $request->user_id,
-        //     'order_details' => $request->order_details,
-        //     'service_center_id' => $request->service_center_id,
-        //     'order_date' => $request->order_date,
-        //     'phone' => $request->phone,
-        //     'car_model' => $request->car_model,
-        //     'order_state' => $request->order_state,
-        // ]);
+        ([
+            'user_id' => $request->user_id,
+            // 'order_details' => $request->order_details,
+            'service_center_id' => $request->service_center_id,
+            'order_date' => $request->order_date,
+            'phone' => $request->phone,
+            'car_model' => $request->car_model,
+            'order_state' => $request->order_state,
+        ]);
 
         $order->services()->attach($request->input('services'));
 
@@ -68,7 +69,7 @@ class OrdersController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
-            'order_details' => 'required',
+            // 'order_details' => 'required',
             'service_center_id' => 'required',
             'order_date' => 'required',
             'phone' => 'required',
@@ -77,7 +78,7 @@ class OrdersController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response($validator->errors()->all(), 422);
+            return response()->json(['errors' => $validator->errors()->messages()], 422);
         }
 
         $order->update($request->all());
@@ -85,7 +86,7 @@ class OrdersController extends Controller
         // Sync the selected services with the order
         $order->services()->sync($request->input('services'));
 
-        return $this->apiresponse($order, "Order updated successfully", 200);
+        return response()->json(['message' => 'Order Updated Successfully', 'data' => $order],201);
     }
 
     public function destroy(Order $order)
@@ -94,8 +95,20 @@ class OrdersController extends Controller
         return $this->apiresponse([], "Order deleted successfully", 200);
     }
 
-
-
+    public function archeive($service_center_id){
+        $order=order::onlyTrashed()->where('service_center_id', $service_center_id)->get();
+        return orderResource::collection($order);
+    }
+    public function userarcheive($user_id){
+        $order=order::onlyTrashed()->where('user_id', $user_id)->get();
+        return orderResource::collection($order);
+    }
+    public function restore($id){
+        order::withTrashed()->where('id',$id)->restore();
+    }
+    public function forcedelete($id){
+        order::withTrashed()->where('id',$id)->forceDelete();
+    }
 
     public function getOrdersByServiceCenterId($service_center_id)
     {

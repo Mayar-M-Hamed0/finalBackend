@@ -10,8 +10,7 @@ use App\Http\Controllers\api\CarController;
 use App\Http\Controllers\api\ordersController;
 use App\Http\Controllers\api\AgentController;
 use App\Http\Controllers\api\ContactMessageController;
-
-
+use App\Http\Controllers\api\UpdateService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function () {
 
-  Route::put('/users/{user}', [usersController::class, 'update'])->middleware('can:update,user');
+  Route::post('/users/{user}', [usersController::class, 'update'])->middleware('can:update,user');
   // Route::delete("users/{user}",[usersController::class,'destroy'])->middleware('can:update,user');
 });
 
@@ -40,7 +39,7 @@ Route::post("register",[AuthController::class,"register"]);
 Route::post("login",[AuthController::class,"login"]);
 Route::post("logout",[AuthController::class,"logout"])->middleware("auth:sanctum");
 
-// 
+//
 
 
 
@@ -63,7 +62,7 @@ Route::apiResource("reviews",ReviewController::class);
 
   */
 
-Route::apiResource("orders",ordersController::class)->middleware(['auth:sanctum']);
+Route::apiResource("orders",ordersController::class); //->middleware(['auth:sanctum']);
 
 //get the order in specific center id
 Route::get("orderByServiceCenter/{id}" , [ordersController::class,'getOrdersByServiceCenterId']);
@@ -75,13 +74,18 @@ Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])
 
 
 
-//  agent only create 
+//  agent only create
 // only agent create service can delete or update this service
 
 Route::apiResource("service-center" , ServiceCenterController::class)->middleware(['auth:sanctum']);
 
 
-// دي هتجيب السنجل  
+Route::post('service-centerss/{id}', [UpdateService::class,'customUpdate'])->middleware('auth:sanctum');
+
+
+
+
+// دي هتجيب السنجل
 
 Route::get("center/{id}" , [ServiceCenterController::class,'singleitem']);
 // دا هيعرض كله
@@ -95,13 +99,14 @@ Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 
 
 
-// GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index  
-// POST            api/services .............................................................................. services.store › api\ServiceCenterController@store  
-// GET|HEAD        api/services/{service} ...................................................................... services.show › api\ServiceCenterController@show  
-// PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update  
-// DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy  
+// GET|HEAD        api/services .............................................................................. services.index › api\ServiceCenterController@index
+// POST            api/services .............................................................................. services.store › api\ServiceCenterController@store
+// GET|HEAD        api/services/{service} ...................................................................... services.show › api\ServiceCenterController@show
+// PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update
+// DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy
 
-Route::get("orders-archeive",[ordersController::class,"archeive"]);
+Route::get("showorders-archeive/{id}",[ordersController::class,"archeive"]);
+Route::get("showuserorders-archeive/{id}",[ordersController::class,"userarcheive"]);
 Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
 Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 
@@ -135,3 +140,13 @@ Route::apiResource('admins', AgentController::class)->middleware(['auth:sanctum'
 Route::delete("DelContact/{id}",[ContactMessageController::class,'destroy'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::get("GetContact",[ContactMessageController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::post("PostContact",[ContactMessageController::class,'store']);
+
+
+//get all agent users
+Route::get('Getagents', [AgentController::class, 'listAgents'])->middleware('auth:sanctum', 'checkrole:admin');
+Route::delete('Delagents/{id}', [AgentController::class, 'deleteAgent'])->middleware('auth:sanctum', 'checkrole:admin');
+
+
+//services
+Route::get('services', [ServiceController::class, 'index'])->middleware('auth:sanctum', 'checkrole:agent');
+Route::post('services', [ServiceController::class, 'store'])->middleware('auth:sanctum', 'checkrole:agent');
