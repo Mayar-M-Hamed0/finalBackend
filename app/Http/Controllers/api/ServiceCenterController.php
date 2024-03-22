@@ -121,6 +121,7 @@ public function index()
             'end_hour' => $dayData['end_hour'],
             'service_center_id' => $serviceCenter->id,
         ]);
+        
         $serviceCenter->days()->save($day);
     }
 
