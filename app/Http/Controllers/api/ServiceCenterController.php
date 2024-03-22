@@ -57,7 +57,7 @@ public function all()
             'phone' => 'required|string|max:255',
             'rating' => 'required|numeric',
             'description' => 'nullable|string',
-            // 'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
             'price' => 'required',
             'services' => 'required|array',

@@ -24,7 +24,7 @@ class UpdateService  extends Controller
             'phone' => 'required|string|max:255',
             'rating' => 'required|numeric',
             'description' => 'nullable|string',
-            // 'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
         ]);
     
