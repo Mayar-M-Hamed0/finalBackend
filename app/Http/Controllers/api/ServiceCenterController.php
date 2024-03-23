@@ -124,8 +124,8 @@ public function index()
         $serviceCenter->days()->save($day);
     }
 
-        $serviceCenter->services()->attach($request->input('services'));
-        $serviceCenter->cars()->attach($request->input('cars'));
+    $serviceCenter->services()->sync($request->input('services'));
+    $serviceCenter->cars()->sync($request->input('cars'));
 
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }

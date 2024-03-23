@@ -51,18 +51,20 @@ class UpdateService  extends Controller
                 'image' => $imagePath,
             ]);
 
-            if ($request->has('days')) {
-                $serviceCenter->days()->delete(); 
-                foreach ($request->days as $dayData) {
-                    $day = Day::create([
-                        'day' => $dayData['day'],
-                        'start_hour' => $dayData['start_hour'],
-                        'end_hour' => $dayData['end_hour'],
+            $data=json_decode($request->days);
+                foreach ($data as $dayData) {
+                    $day = Day::updateOrCreate([
+                        'day' => $dayData->day,
+                        'start_hour' => $dayData->startTime,
+                        'end_hour' => $dayData->endTime,
                         'service_center_id' => $serviceCenter->id,
                     ]);
-                    $serviceCenter->days()->save($day); 
+                   
                 }
-            }
+                
+                $serviceCenter->services()->sync($request->input('services'));
+    $serviceCenter->cars()->sync($request->input('cars'));
+    
         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
     }
 
