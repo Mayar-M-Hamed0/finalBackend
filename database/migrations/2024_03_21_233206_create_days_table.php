@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('days', function (Blueprint $table) {
             $table->id(); 
-            $table->string('day');
-            $table->time('start_hour');
-            $table->time('end_hour');
+            $table->string('day')->nullable();
+            $table->time('start_hour')->nullable();
+            $table->time('end_hour')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('service_center_id');
 
