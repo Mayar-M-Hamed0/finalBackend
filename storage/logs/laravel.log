@@ -17082,3 +17082,18 @@
 #62 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\Users\\\\Link\\\\D...')
 #63 {main}
 "} 
+[2024-03-23 10:14:49] local.ERROR: There are no commands defined in the "vendore" namespace.
+
+Did you mean this?
+    vendor {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"vendore\" namespace.
+
+Did you mean this?
+    vendor at I:\\backend for final\\finalBackend\\vendor\\symfony\\console\\Application.php:669)
+[stacktrace]
+#0 I:\\backend for final\\finalBackend\\vendor\\symfony\\console\\Application.php(720): Symfony\\Component\\Console\\Application->findNamespace('vendore')
+#1 I:\\backend for final\\finalBackend\\vendor\\symfony\\console\\Application.php(266): Symfony\\Component\\Console\\Application->find('vendore:puplish')
+#2 I:\\backend for final\\finalBackend\\vendor\\symfony\\console\\Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 I:\\backend for final\\finalBackend\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
