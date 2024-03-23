@@ -51,8 +51,9 @@ Route::post("logout",[AuthController::class,"logout"])->middleware("auth:sanctum
 
 
 //// Route For review /////////
+Route::get("allcomment",[ReviewController::class,'index']);
 
-Route::apiResource("reviews",ReviewController::class);
+Route::apiResource("reviews",ReviewController::class)->middleware("auth:sanctum");
 /*
 
  GET|HEAD        api/reviews ....... reviews.index › api\ReviewController@index
