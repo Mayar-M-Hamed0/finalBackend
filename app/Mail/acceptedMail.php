@@ -9,15 +9,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
+use App\Models\order;
 
 class acceptedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
-    public function __construct()
+    public $order;
+    public function __construct($id)
     {
-        $user= Auth::user();
+        $this->order=Order::find($id);
     }
 
     /**
