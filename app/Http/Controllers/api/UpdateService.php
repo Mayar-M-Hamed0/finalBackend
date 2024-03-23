@@ -26,6 +26,7 @@ class UpdateService  extends Controller
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
+            'price' => 'required',
         ]);
     
         if ($validator->fails()) {
@@ -49,6 +50,7 @@ class UpdateService  extends Controller
                 'rating' => $request->rating,
                 'description' => $request->description,
                 'image' => $imagePath,
+                'price' => $request->price,
             ]);
 
             $data=json_decode($request->days);
