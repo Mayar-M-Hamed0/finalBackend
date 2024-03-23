@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\api;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\orderResource;
+use App\Http\Resources\ReviewResource;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +28,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return Review::all();
+        return ReviewResource ::collection( Review::all());
+        
     
     }
 

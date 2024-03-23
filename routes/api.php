@@ -10,6 +10,7 @@ use App\Http\Controllers\api\CarController;
 use App\Http\Controllers\api\ordersController;
 use App\Http\Controllers\api\AgentController;
 use App\Http\Controllers\api\ContactMessageController;
+use App\Http\Controllers\api\mailController;
 use App\Http\Controllers\api\UpdateService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +29,14 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get("alluser",[usersController::class,'index'])->middleware('auth:sanctum', 'checkrole:admin');
 Route::get("users/{user}",[usersController::class,'show'])->middleware('auth:sanctum', 'checkrole:admin');;
 
+// Route::post('/login', [usersController::class, 'login']);
+Route::apiResource("users",usersController::class);
+
+
+
+
 Route::post("register",[AuthController::class,"register"]);
+
 Route::post("login",[AuthController::class,"login"]);
 Route::post("logout",[AuthController::class,"logout"])->middleware("auth:sanctum");
 
@@ -143,3 +151,8 @@ Route::delete('Delagents/{id}', [AgentController::class, 'deleteAgent'])->middle
 //services
 Route::get('services', [ServiceController::class, 'index'])->middleware('auth:sanctum', 'checkrole:agent');
 Route::post('services', [ServiceController::class, 'store'])->middleware('auth:sanctum', 'checkrole:agent');
+
+
+//send mail
+
+Route::get('/send/{id}',[mailController::class,'send']); //->middleware("auth:sanctum");;

@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\acceptedMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/senddd', function () {
+    Mail::to('mayar.m.hamed97@gmail.com')->send(new acceptedMail);
+});
+

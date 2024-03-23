@@ -61,7 +61,7 @@ public function index()
     public function store(Request $request)
     {
         $this->authorize('create', ServiceCenter::class);
-    
+
         $validator = Validator::make($request->all(), [
 
             'name' => 'required|string|max:255',
@@ -73,28 +73,28 @@ public function index()
             'price' => 'required',
             'services' => 'required|array',
             'cars' => 'required|array',
-            'days' => 'nullable|array',
+            'days' => 'nullable',
             // 'days' => 'nullable|array',
-            // 'days.*.start_hour' => 'required|date_format:H:i', 
-            // 'days.*.end_hour' => 'required|date_format:H:i',  
+            // 'days.*.start_hour' => 'required|date_format:H:i',
+            // 'days.*.end_hour' => 'required|date_format:H:i',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['data' => $validator->errors()], 422);
         }
 
-    
+
         $user_id = $request->user()->id;
-    
-  
+
+
         $imagePath = null;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
             $image->move(public_path('images'), $imageName);
-            $imagePath = 'images/' . $imageName; 
+            $imagePath = 'images/' . $imageName;
         }
-    
+
 
 
        $user_id = $request->user()->id;
@@ -107,30 +107,30 @@ public function index()
             'phone' => $request->phone,
             'rating' => $request->rating,
             'description' => $request->description,
-            'image' => $imagePath, 
+            'image' => $imagePath,
             'location' => $request->location,
             'price' => $request->price,
-            
+
         ]);
 
-       
-    foreach ($request->days as $dayData) {
+        $data=json_decode($request->days);
+    foreach ($data as $dayData) {
         $day = Day::create([
-            'day' => $dayData['day'],
-            'start_hour' => $dayData['start_hour'],
-            'end_hour' => $dayData['end_hour'],
+            'day' => $dayData->day,
+            'start_hour' => $dayData->startTime,
+            'end_hour' => $dayData->endTime,
             'service_center_id' => $serviceCenter->id,
         ]);
         
         $serviceCenter->days()->save($day);
     }
 
-        $serviceCenter->services()->attach($request->input('services'));
-        $serviceCenter->cars()->attach($request->input('cars'));
-    
+    $serviceCenter->services()->sync($request->input('services'));
+    $serviceCenter->cars()->sync($request->input('cars'));
+
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
-    
+
 //  show retutn service only created this service !!
 
 public function show($id)
@@ -146,7 +146,7 @@ public function show($id)
             $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
         }
     ])->find($id);
-   
+
     if (!$serviceCenter) {
         return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
     }
@@ -168,16 +168,16 @@ public function show($id)
             $query->select('car_name');
         }])
         ->with('days')
-        
+
         ->find ($id);
-    
+
         if (!$serviceCenter) {
             return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
         }
-    
+
         return response()->json($serviceCenter);
     }
-    
+
 
 
 
