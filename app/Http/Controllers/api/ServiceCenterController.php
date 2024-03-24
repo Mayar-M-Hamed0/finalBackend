@@ -23,7 +23,7 @@ class ServiceCenterController extends Controller
 public function all()
 
 {
-<<<<<<< HEAD
+
     $serviceCenters = ServiceCenter::with([
         'services' => function ($query) {
             $query->select('service_name');
@@ -35,9 +35,9 @@ public function all()
             $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
         }
     ])->get();
-=======
+
     $serviceCenters = ServiceCenter::with('services', 'cars', 'days')->get();
->>>>>>> main
+
 
     return response()->json($serviceCenters);
 }
@@ -48,7 +48,7 @@ public function index()
 {
     $this->authorize('create', ServiceCenter::class);
 
-<<<<<<< HEAD
+
     $userServices = ServiceCenter::with([
         'services' => function ($query) {
             $query->select('service_name');
@@ -60,9 +60,9 @@ public function index()
             $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
         }
     ])->where('user_id', $user_id)->get();
-=======
+
     $allServices = ServiceCenter::with('services', 'cars', 'days')->get();
->>>>>>> main
+
 
     return response()->json($allServices);
 }
@@ -168,7 +168,7 @@ foreach ($dataservice as $serviceData) {
 
 public function show($id)
 {
-<<<<<<< HEAD
+
     $serviceCenter = ServiceCenter::with([
         'services' => function ($query) {
             $query->select('service_name');
@@ -180,8 +180,7 @@ public function show($id)
             $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
         }
     ])->find($id);
-=======
->>>>>>> main
+
 
     $this->authorize('create', ServiceCenter::class);
 
