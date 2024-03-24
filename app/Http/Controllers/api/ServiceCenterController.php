@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ServiceCenter;
 use App\Models\CenterDayPivot;
 use App\Models\Day;
+use App\Models\Car;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -71,8 +73,8 @@ public function index()
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
             'price' => 'required',
-            'services' => 'required|array',
-            'cars' => 'required|array',
+            'services' => 'required',
+            'cars' => 'required',
             'days' => 'nullable',
             // 'days' => 'nullable|array',
             // 'days.*.start_hour' => 'required|date_format:H:i',
@@ -125,9 +127,34 @@ public function index()
         $serviceCenter->days()->save($day);
     }
 
-    $serviceCenter->services()->sync($request->input('services'));
-    $serviceCenter->cars()->sync($request->input('cars'));
 
+    $datacars = json_decode($request->cars);
+foreach ($datacars as $carData) {
+    $car = new Car([
+        'car_name' => $carData->value, 
+    ]);
+    
+    if ($serviceCenter->id) {
+        $car->service_center_id = $serviceCenter->id;
+    }
+    
+    $car->save();
+}
+
+
+$dataservice=json_decode($request->services);
+foreach ($dataservice as $serviceData) {
+    $service = new Service([
+
+        'service_name' => $serviceData->key, 
+    ]);
+    if ($serviceCenter->id) {
+        $service->service_center_id = $serviceCenter->id;
+    }
+    $service->save();
+}
+
+   
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
 
@@ -162,7 +189,7 @@ public function show($id)
     public function singleitem($id)
     {
         $serviceCenter = ServiceCenter::with(['services' => function ($query) {
-            $query->select('service_name', 'service_details');
+            $query->select('service_name');
         }])
         ->with(['cars' => function ($query) {
             $query->select('car_name');

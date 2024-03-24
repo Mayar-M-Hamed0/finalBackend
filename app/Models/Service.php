@@ -11,13 +11,14 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'service_name', 'service_details', 'image', 'user_id' , 
+        'service_name', 'service_details', 'user_id' , 
     ];
 
-    public function serviceCenters()
+    public function serviceCenter()
     {
-        return $this->belongsToMany(ServiceCenter::class, 'service_center_services');
+        return $this->belongsTo(ServiceCenter::class);
     }
+
 
     public function user()
     {
