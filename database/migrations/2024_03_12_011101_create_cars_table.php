@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('car_name');
+            $table->unsignedBigInteger('service_center_id');
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('service_center_id')->references('id')->on('service_centers')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

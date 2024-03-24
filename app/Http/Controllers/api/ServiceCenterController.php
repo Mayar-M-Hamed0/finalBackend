@@ -125,9 +125,31 @@ public function index()
         $serviceCenter->days()->save($day);
     }
 
-    $serviceCenter->services()->sync($request->input('services'));
-    $serviceCenter->cars()->sync($request->input('cars'));
 
+    $datacars = json_decode($request->cars);
+foreach ($datacars as $carData) {
+    $car = new Car([
+        'car_name' => $carData->value, 
+    ]);
+    
+    if ($serviceCenter->id) {
+        $car->service_center_id = $serviceCenter->id;
+    }
+    
+    $car->save();
+}
+$dataservice=json_decode($request->services);
+foreach ($dataservice as $serviceData) {
+    $service = new Service([
+        'service_name' => $serviceData->value, 
+    ]);
+    if ($serviceCenter->id) {
+        $service->service_center_id = $serviceCenter->id;
+    }
+    $service->save();
+}
+
+   
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
 
