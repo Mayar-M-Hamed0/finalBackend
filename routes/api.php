@@ -12,6 +12,7 @@ use App\Http\Controllers\api\AgentController;
 use App\Http\Controllers\api\ContactMessageController;
 use App\Http\Controllers\api\mailController;
 use App\Http\Controllers\api\UpdateService;
+use App\Http\Controllers\paymentContoller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,8 +51,9 @@ Route::post("logout",[AuthController::class,"logout"])->middleware("auth:sanctum
 
 
 //// Route For review /////////
+Route::get("allcomment",[ReviewController::class,'index']);
 
-Route::apiResource("reviews",ReviewController::class);
+Route::apiResource("reviews",ReviewController::class)->middleware("auth:sanctum");
 /*
 
  GET|HEAD        api/reviews ....... reviews.index › api\ReviewController@index
@@ -155,4 +157,10 @@ Route::post('services', [ServiceController::class, 'store'])->middleware('auth:s
 
 //send mail
 
-Route::get('/send/{id}',[mailController::class,'send']); //->middleware("auth:sanctum");;
+Route::get('/send/{id}',[mailController::class,'send']); //->middleware("auth:sanctum");
+Route::get('/reject/{id}',[mailController::class,'reject']); //->middleware("auth:sanctum");
+
+
+Route::get('/payment',[paymentContoller::class,'payment']);
+Route::get('/success',[paymentContoller::class,'success']);
+Route::get('/cancel',[paymentContoller::class,'cancel']);

@@ -38,25 +38,27 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+        // التحقق من مصادقة المستخدم
+        if (!Auth::check()) {
+            return response()->json('Unauthorized', 401);
+        }
         
-   // return Review::create($request->all());
-   $validator = Validator::make($request->all(), [
-          
-    "user_id" => "required",
-
-    "service_center_id" => "required",
-
-    "Description" => "required"
-  
-   
-
-]);
-if($validator->fails()){
-    return response($validator->errors()->all());
-}
-$review = Review::create($request->all());
-return response($review, 201);
-}
+        $validator = Validator::make($request->all(), [
+            "user_id" => "required",
+            "service_center_id" => "required",
+            "Description" => "required",
+            "rate"=> "required"
+            
+        ]);
+    
+        if ($validator->fails()) {
+            return response($validator->errors()->all());
+        }
+    
+        // إنشاء المراجعة الجديدة
+        $review = Review::create($request->all());
+        return response($review, 201);
+    }
 
 
     /**
@@ -70,11 +72,27 @@ return response($review, 201);
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Review $review)
-    {
-        return $review->update($request->all());
+
+  public function update(Request $request, Review $review)
+{
+
+    if ($review->user_id == Auth::id()) {
+        $validator = Validator::make($request->all(), [
+
+            "Description" => "required",
+         //   "rate"=> "required"
+        ]);
+    
+        if ($validator->fails()) {
+            return response($validator->errors()->all());
+        }
+        $review->update($request->all());
+        return response()->json('Review updated successfully', 200);
+    } else {
+        return response()->json('You are not authorized to update this review', 403);
     }
 
+}
 
 
     /**
@@ -82,8 +100,12 @@ return response($review, 201);
      */
     public function destroy(Review $review)
     {
-        $review->delete();
-        return "Deleted Successfully";
+        if ($review->user_id == Auth::id()) {
+            $review->delete();
+            return response()->json('Deleted Successfully', 200);
+        } else {
+            return response()->json('You are not authorized to delete this review', 403);
+        }
     }
 
 }
