@@ -18862,3 +18862,821 @@
 #19 C:\\xampp\\htdocs\\BackendLaravel11111\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\xampp\\\\htdocs...')
 #20 {main}
 "}
+[2024-03-24 00:58:21] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:21] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:22] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:22] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:22] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:22] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:22] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:23] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:23] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:27] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:28] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:28] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:28] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:28] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:28] local.ERROR: Uncaught ReflectionException: Class "view" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [view] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('view')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('view', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('view', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('view', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"view\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#6 Command line code(1): app('view')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [view] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('view')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('view', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('view', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('view', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('view', Array)
+#5 Command line code(1): app('view')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:58:52] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:52] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:58:52] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:1126
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(921): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(1454): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(208): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(349): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1126
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(921): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1454): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(208): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(349): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1126)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 00:59:52] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:59:52] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 00:59:52] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:1126
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(921): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(1454): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(208): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(349): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1126
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(921): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1454): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(208): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(349): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1126)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 01:00:15] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 01:00:40] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 01:00:40] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 01:00:40] local.ERROR: Uncaught ReflectionException: Class "translator" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('translator')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('translator')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('translator', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('translator', Array)
+#6 Command line code(1): app('translator')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [translator] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('translator')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('translator', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('translator', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('translator', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('translator', Array)
+#5 Command line code(1): app('translator')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"translator\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('translator')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('translator')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('translator', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('translator', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('translator', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('translator', Array)
+#6 Command line code(1): app('translator')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [translator] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('translator')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('translator', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('translator', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('translator', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('translator', Array)
+#5 Command line code(1): app('translator')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 01:00:40] local.ERROR: Uncaught ReflectionException: Class "translator" does not exist in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:912
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(912): ReflectionClass->__construct('translator')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('translator')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('translator', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('translator', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('translator', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('translator', Array)
+#6 Command line code(1): app('translator')
+#7 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [translator] does not exist. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:914
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('translator')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('translator', Array, true)
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('translator', Array)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('translator', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php(120): Illuminate\Foundation\Application->make('translator', Array)
+#5 Command line code(1): app('translator')
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ReflectionException: Class \"translator\" does not exist in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:912
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(912): ReflectionClass->__construct('translator')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('translator')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('translator', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('translator', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('translator', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('translator', Array)
+#6 Command line code(1): app('translator')
+#7 {main}
+
+Next Illuminate\\Contracts\\Container\\BindingResolutionException: Target class [translator] does not exist. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('translator')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('translator', Array, true)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('translator', Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('translator', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(120): Illuminate\\Foundation\\Application->make('translator', Array)
+#5 Command line code(1): app('translator')
+#6 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:914)
+[stacktrace]
+#0 {main}
+"} 
+[2024-03-24 01:00:52] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 01:00:52] local.ERROR: Class "Srmklive\PayPal\Providers\PayPalServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"Srmklive\\PayPal\\Providers\\PayPalServiceProvider\" not found at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php:206)
+[stacktrace]
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(142): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(765): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#7 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2024-03-24 01:00:52] local.ERROR: Uncaught Illuminate\Contracts\Container\BindingResolutionException: Target [Illuminate\Contracts\Auth\Access\Gate] is not instantiable. in C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php:1126
+Stack trace:
+#0 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(921): Illuminate\Container\Container->notInstantiable('Illuminate\\Cont...')
+#1 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(795): Illuminate\Container\Container->build('Illuminate\\Cont...')
+#2 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(957): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#3 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(731): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#4 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(942): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#5 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Container\Container.php(1454): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#6 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Container\Container->offsetGet('Illuminate\\Cont...')
+#7 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(208): Illuminate\Support\Facades\Facade::resolveFacadeInstance('Illuminate\\Cont...')
+#8 C:\Users\Link\Desktop\final backend\finalBackend\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(349): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\Support\Facades\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Illuminate\\Contracts\\Container\\BindingResolutionException: Target [Illuminate\\Contracts\\Auth\\Access\\Gate] is not instantiable. in C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1126
+Stack trace:
+#0 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(921): Illuminate\\Container\\Container->notInstantiable('Illuminate\\\\Cont...')
+#1 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(795): Illuminate\\Container\\Container->build('Illuminate\\\\Cont...')
+#2 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(957): Illuminate\\Container\\Container->resolve('Illuminate\\\\Cont...', Array, true)
+#3 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(731): Illuminate\\Foundation\\Application->resolve('Illuminate\\\\Cont...', Array)
+#4 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(942): Illuminate\\Container\\Container->make('Illuminate\\\\Cont...', Array)
+#5 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1454): Illuminate\\Foundation\\Application->make('Illuminate\\\\Cont...')
+#6 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(237): Illuminate\\Container\\Container->offsetGet('Illuminate\\\\Cont...')
+#7 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(208): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance('Illuminate\\\\Cont...')
+#8 C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(349): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()
+#9 Command line code(1): Illuminate\\Support\\Facades\\Facade::__callStatic('abilities', Array)
+#10 {main}
+  thrown at C:\\Users\\Link\\Desktop\\final backend\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:1126)
+[stacktrace]
+#0 {main}
+"} 
