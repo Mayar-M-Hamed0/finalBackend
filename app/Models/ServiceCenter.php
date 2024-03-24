@@ -25,13 +25,12 @@ class ServiceCenter extends Model
 
     public function cars()
     {
-        return $this->belongsToMany(Car::class, 'service_center_cars')
-            ->using(ServiceCenterCar::class);
+        return $this->hasMany(Car::class);
     }
 
     public function services()
     {
-        return $this->belongsToMany(Service::class, 'service_center_services');
+        return $this->hasMany(Service::class);
     }
 
 

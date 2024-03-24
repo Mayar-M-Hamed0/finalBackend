@@ -66,7 +66,7 @@ public function index()
 
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-            'rating' => 'required|numeric',
+           
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
@@ -105,7 +105,7 @@ public function index()
             'car_name' => $request->cars,
             'name' => $request->name,
             'phone' => $request->phone,
-            'rating' => $request->rating,
+        
             'description' => $request->description,
             'image' => $imagePath,
             'location' => $request->location,
@@ -125,9 +125,31 @@ public function index()
         $serviceCenter->days()->save($day);
     }
 
-    $serviceCenter->services()->sync($request->input('services'));
-    $serviceCenter->cars()->sync($request->input('cars'));
 
+    $datacars = json_decode($request->cars);
+foreach ($datacars as $carData) {
+    $car = new Car([
+        'car_name' => $carData->value, 
+    ]);
+    
+    if ($serviceCenter->id) {
+        $car->service_center_id = $serviceCenter->id;
+    }
+    
+    $car->save();
+}
+$dataservice=json_decode($request->services);
+foreach ($dataservice as $serviceData) {
+    $service = new Service([
+        'service_name' => $serviceData->value, 
+    ]);
+    if ($serviceCenter->id) {
+        $service->service_center_id = $serviceCenter->id;
+    }
+    $service->save();
+}
+
+   
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
 
