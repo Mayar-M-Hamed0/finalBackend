@@ -10,7 +10,7 @@ use App\Models\order;
 class paymentContoller extends Controller
 {
     public function payment($id){
-        $orderss=order::find($id);
+        $orderss=Order::withTrashed()->find($id);
         $priceee=$orderss->serviceCenter->price;
         $data=[];
         $data['items']=

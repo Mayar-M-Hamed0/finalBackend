@@ -65,12 +65,12 @@ Route::apiResource("reviews",ReviewController::class)->middleware("auth:sanctum"
 
   */
 
-Route::apiResource("orders",ordersController::class); //->middleware(['auth:sanctum']);
+Route::apiResource("orders",ordersController::class)->middleware(['auth:sanctum']);
 
 //get the order in specific center id
-Route::get("orderByServiceCenter/{id}" , [ordersController::class,'getOrdersByServiceCenterId']);
+Route::get("orderByServiceCenter/{id}" , [ordersController::class,'getOrdersByServiceCenterId'])->middleware('auth:sanctum', 'checkrole:agent');
 //get the order in specific user id
-Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId']);
+Route::get("orderByUserid/{id}" , [ordersController::class,'getOrdersByUserId'])->middleware('auth:sanctum');;
 
 
 
@@ -108,8 +108,8 @@ Route::get("Allservice-center" , [ServiceCenterController::class,'all']);
 // PUT|PATCH       api/services/{service} .................................................................. services.update › api\ServiceCenterController@update
 // DELETE          api/services/{service} ................................................................ services.destroy › api\ServiceCenterController@destroy
 
-Route::get("showorders-archeive/{id}",[ordersController::class,"archeive"]);
-Route::get("showuserorders-archeive/{id}",[ordersController::class,"userarcheive"]);
+Route::get("showorders-archeive/{id}",[ordersController::class,"archeive"])->middleware('auth:sanctum', 'checkrole:agent');
+Route::get("showuserorders-archeive/{id}",[ordersController::class,"userarcheive"])->middleware('auth:sanctum');
 Route::get("orders-archeive/{id}",[ordersController::class,"restore"]);
 Route::delete("orders-archeive/{id}",[ordersController::class,"forcedelete"]);
 
