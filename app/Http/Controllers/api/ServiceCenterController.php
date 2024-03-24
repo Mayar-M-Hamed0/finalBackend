@@ -22,17 +22,7 @@ class ServiceCenterController extends Controller
 //  all data for web site
 public function all()
 {
-    $serviceCenters = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name', 'service_details');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
-    ])->get();
+    $serviceCenters = ServiceCenter::with('services', 'cars', 'days')->get();
 
     return response()->json($serviceCenters);
 }
@@ -42,21 +32,10 @@ public function all()
 public function index()
 {
     $this->authorize('create', ServiceCenter::class);
-    $user_id = Auth::id();
 
-    $userServices = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name', 'service_details');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
-    ])->where('user_id', $user_id)->get();
+    $allServices = ServiceCenter::with('services', 'cars', 'days')->get();
 
-    return response()->json($userServices);
+    return response()->json($allServices);
 }
 
 
@@ -162,23 +141,18 @@ foreach ($dataservice as $serviceData) {
 
 public function show($id)
 {
-    $serviceCenter = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name', 'service_details');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
-    ])->find($id);
 
-    if (!$serviceCenter) {
-        return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
-    }
+    $this->authorize('create', ServiceCenter::class);
 
-    return response()->json($serviceCenter);
+    $serviceCenter = ServiceCenter::with('services')
+    ->with('cars')
+    ->with('days')
+    ->find($id);
+if (!$serviceCenter) {
+    return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
+}
+
+return response()->json($serviceCenter);
 }
 
 
@@ -188,24 +162,19 @@ public function show($id)
     //  retturn single service for all user
     public function singleitem($id)
     {
-        $serviceCenter = ServiceCenter::with(['services' => function ($query) {
-            $query->select('service_name');
-        }])
-        ->with(['cars' => function ($query) {
-            $query->select('car_name');
-        }])
-        ->with('days')
 
-        ->find ($id);
 
+        $serviceCenter = ServiceCenter::with('services')
+            ->with('cars')
+            ->with('days')
+            ->find($id);
         if (!$serviceCenter) {
             return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
         }
-
+    
         return response()->json($serviceCenter);
     }
-
-
+    
 
 
      public function update(Request $request, ServiceCenter $serviceCenter)
