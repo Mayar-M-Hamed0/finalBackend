@@ -22,7 +22,7 @@ class UpdateService  extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-            'rating' => 'required|numeric',
+         
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
@@ -47,7 +47,7 @@ class UpdateService  extends Controller
             ->update([
                 'name' => $request->name,
                 'phone' => $request->phone,
-                'rating' => $request->rating,
+                
                 'description' => $request->description,
                 'image' => $imagePath,
                 'price' => $request->price,
