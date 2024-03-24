@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\ServiceCenter;
 use App\Models\Day;
+use App\Models\Car;
+use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 class UpdateService  extends Controller
@@ -22,11 +24,12 @@ class UpdateService  extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-         
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
             'price' => 'required',
+            'services' => 'required',
+            'cars' => 'required',
         ]);
     
         if ($validator->fails()) {
@@ -63,9 +66,25 @@ class UpdateService  extends Controller
                     ]);
                    
                 }
+
+
+                $dataCars = json_decode($request->cars);
+                foreach ($dataCars as $carData) {
+                    Car::updateOrCreate(
+                        ['car_name' => $carData->key, 'service_center_id' => $id],
+                        ['service_center_id' => $id]
+                    );
+                }
                 
-                $serviceCenter->services()->sync($request->input('services'));
-    $serviceCenter->cars()->sync($request->input('cars'));
+                $dataServices = json_decode($request->services);
+                foreach ($dataServices as $serviceData) {
+                    Service::updateOrCreate(
+                        ['service_name' => $serviceData->key, 'service_center_id' => $id],
+                        ['service_center_id' => $id]
+                    );
+                }
+                
+
     
         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
     }
