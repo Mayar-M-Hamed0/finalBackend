@@ -21,23 +21,8 @@ class ServiceCenterController extends Controller
 
 //  all data for web site
 public function all()
-
 {
-
-    $serviceCenters = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
-    ])->get();
-
     $serviceCenters = ServiceCenter::with('services', 'cars', 'days')->get();
-
 
     return response()->json($serviceCenters);
 }
@@ -48,21 +33,7 @@ public function index()
 {
     $this->authorize('create', ServiceCenter::class);
 
-
-    $userServices = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
-    ])->where('user_id', $user_id)->get();
-
     $allServices = ServiceCenter::with('services', 'cars', 'days')->get();
-
 
     return response()->json($allServices);
 }
@@ -149,10 +120,12 @@ foreach ($datacars as $carData) {
     $car->save();
 }
 
+
 $dataservice=json_decode($request->services);
 foreach ($dataservice as $serviceData) {
     $service = new Service([
-        'service_name' => $serviceData->value, 
+
+        'service_name' => $serviceData->key, 
     ]);
     if ($serviceCenter->id) {
         $service->service_center_id = $serviceCenter->id;
@@ -168,19 +141,6 @@ foreach ($dataservice as $serviceData) {
 
 public function show($id)
 {
-
-    $serviceCenter = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
-    ])->find($id);
-
 
     $this->authorize('create', ServiceCenter::class);
 
