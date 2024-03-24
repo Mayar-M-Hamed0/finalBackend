@@ -18983,7 +18983,7 @@
 #56 I:\\backend for final\\finalBackend\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('I:\\\\backend for ...')
 #58 {main}
-"} 
+"}
 [2024-03-24 01:14:15] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'order_details' cannot be null (Connection: mysql, SQL: update `orders` set `order_details` = ?, `order_date` = 2024-03-27, `orders`.`updated_at` = 2024-03-24 01:14:15 where `id` = 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'order_details' cannot be null (Connection: mysql, SQL: update `orders` set `order_details` = ?, `order_date` = 2024-03-27, `orders`.`updated_at` = 2024-03-24 01:14:15 where `id` = 1) at I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('update `orders`...', Array, Object(Closure))
@@ -19105,7 +19105,7 @@
 #56 I:\\backend for final\\finalBackend\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('I:\\\\backend for ...')
 #58 {main}
-"} 
+"}
 [2024-03-24 01:20:58] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'order_details' cannot be null (Connection: mysql, SQL: update `orders` set `order_details` = ?, `order_date` = 2024-04-03, `orders`.`updated_at` = 2024-03-24 01:20:58 where `id` = 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'order_details' cannot be null (Connection: mysql, SQL: update `orders` set `order_details` = ?, `order_date` = 2024-04-03, `orders`.`updated_at` = 2024-03-24 01:20:58 where `id` = 1) at I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('update `orders`...', Array, Object(Closure))
@@ -19227,7 +19227,7 @@
 #56 I:\\backend for final\\finalBackend\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('I:\\\\backend for ...')
 #58 {main}
-"} 
+"}
 [2024-03-24 01:22:25] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'order_details' cannot be null (Connection: mysql, SQL: update `orders` set `order_details` = ?, `order_date` = 2024-03-21, `orders`.`updated_at` = 2024-03-24 01:22:25 where `id` = 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'order_details' cannot be null (Connection: mysql, SQL: update `orders` set `order_details` = ?, `order_date` = 2024-03-21, `orders`.`updated_at` = 2024-03-24 01:22:25 where `id` = 1) at I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('update `orders`...', Array, Object(Closure))
@@ -19349,4 +19349,4 @@
 #56 I:\\backend for final\\finalBackend\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #57 I:\\backend for final\\finalBackend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('I:\\\\backend for ...')
 #58 {main}
-"} 
+"}
