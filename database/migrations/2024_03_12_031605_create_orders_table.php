@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('order_state');
             $table->string('car_model');
             $table->string('phone');
-            $table->date('order_date');
+            $table->date('order_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
