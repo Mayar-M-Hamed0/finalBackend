@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\acceptedMail;
+use App\Mail\rejectMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -19,7 +20,16 @@ class mailController extends Controller
         $order=order::find($id);
         // dd($order->user->email);
 
-         Mail::to("mayar.m.hamed97@gmail.com")->send(new acceptedMail($order->id));
+         Mail::to($order->user->email)->send(new acceptedMail($order->id));
+         return response()->json(['message' => 'email sended successfully']);
+
+    }
+    public function reject($id)
+    {
+        $order=order::find($id);
+        // dd($order->user->email);
+
+         Mail::to($order->user->email)->send(new rejectMail($order->id));
          return response()->json(['message' => 'email sended successfully']);
 
     }
