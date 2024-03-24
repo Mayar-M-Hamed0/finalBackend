@@ -105,6 +105,7 @@ public function index()
             'car_name' => $request->cars,
             'name' => $request->name,
             'phone' => $request->phone,
+        
             'description' => $request->description,
             'image' => $imagePath,
             'location' => $request->location,
@@ -189,7 +190,7 @@ public function show($id)
             'cars' => 'required|array',
              'name' => 'required|string|max:255',
              'phone' => 'required|string|max:255',
-            
+             'rating' => 'required|numeric',
              'working_days' => 'required|string|max:255',
              'working_hours' => 'required|string|max:255',
              'description' => 'nullable|string',
