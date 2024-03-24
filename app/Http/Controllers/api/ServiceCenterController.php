@@ -22,7 +22,17 @@ class ServiceCenterController extends Controller
 //  all data for web site
 public function all()
 {
-    $serviceCenters = ServiceCenter::with('services', 'cars', 'days')->get();
+    $serviceCenters = ServiceCenter::with([
+        'services' => function ($query) {
+            $query->select('service_name');
+        },
+        'cars' => function ($query) {
+            $query->select('car_name');
+        },
+        'days' => function ($query) {
+            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
+        }
+    ])->get();
 
     return response()->json($serviceCenters);
 }
@@ -31,11 +41,22 @@ public function all()
 
 public function index()
 {
-    $this->authorize('create', ServiceCenter::class);
+    // $this->authorize('create', ServiceCenter::class);
+    $user_id = Auth::id();
 
-    $allServices = ServiceCenter::with('services', 'cars', 'days')->get();
+    $userServices = ServiceCenter::with([
+        'services' => function ($query) {
+            $query->select('service_name');
+        },
+        'cars' => function ($query) {
+            $query->select('car_name');
+        },
+        'days' => function ($query) {
+            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
+        }
+    ])->where('user_id', $user_id)->get();
 
-    return response()->json($allServices);
+    return response()->json($userServices);
 }
 
 
@@ -47,7 +68,7 @@ public function index()
 
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-           
+
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
@@ -86,7 +107,7 @@ public function index()
             'car_name' => $request->cars,
             'name' => $request->name,
             'phone' => $request->phone,
-        
+
             'description' => $request->description,
             'image' => $imagePath,
             'location' => $request->location,
@@ -102,7 +123,7 @@ public function index()
             'end_hour' => $dayData->endTime,
             'service_center_id' => $serviceCenter->id,
         ]);
-        
+
         $serviceCenter->days()->save($day);
     }
 
@@ -110,13 +131,13 @@ public function index()
     $datacars = json_decode($request->cars);
 foreach ($datacars as $carData) {
     $car = new Car([
-        'car_name' => $carData->key, 
+        'car_name' => $carData->key,
     ]);
-    
+
     if ($serviceCenter->id) {
         $car->service_center_id = $serviceCenter->id;
     }
-    
+
     $car->save();
 }
 
@@ -125,7 +146,7 @@ $dataservice=json_decode($request->services);
 foreach ($dataservice as $serviceData) {
     $service = new Service([
 
-        'service_name' => $serviceData->key, 
+        'service_name' => $serviceData->key,
     ]);
     if ($serviceCenter->id) {
         $service->service_center_id = $serviceCenter->id;
@@ -133,7 +154,7 @@ foreach ($dataservice as $serviceData) {
     $service->save();
 }
 
-   
+
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
 
@@ -171,10 +192,10 @@ return response()->json($serviceCenter);
         if (!$serviceCenter) {
             return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
         }
-    
+
         return response()->json($serviceCenter);
     }
-    
+
 
 
      public function update(Request $request, ServiceCenter $serviceCenter)
