@@ -80,7 +80,7 @@ class ReviewController extends Controller
         $validator = Validator::make($request->all(), [
 
             "Description" => "required",
-            "rate"=> "required"
+         //   "rate"=> "required"
         ]);
     
         if ($validator->fails()) {
