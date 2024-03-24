@@ -71,7 +71,7 @@ class UpdateService  extends Controller
                 $dataCars = json_decode($request->cars);
                 foreach ($dataCars as $carData) {
                     Car::updateOrCreate(
-                        ['car_name' => $carData->value],
+                        ['car_name' => $carData->key, 'service_center_id' => $id],
                         ['service_center_id' => $id]
                     );
                 }
@@ -79,13 +79,12 @@ class UpdateService  extends Controller
                 $dataServices = json_decode($request->services);
                 foreach ($dataServices as $serviceData) {
                     Service::updateOrCreate(
-                        ['service_name' => $serviceData->value],
+                        ['service_name' => $serviceData->key, 'service_center_id' => $id],
                         ['service_center_id' => $id]
                     );
                 }
                 
-                $serviceCenter->services()->sync($request->input('services'));
-    $serviceCenter->cars()->sync($request->input('cars'));
+
     
         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
     }
