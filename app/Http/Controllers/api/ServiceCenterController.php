@@ -110,7 +110,7 @@ public function index()
     $datacars = json_decode($request->cars);
 foreach ($datacars as $carData) {
     $car = new Car([
-        'car_name' => $carData->value, 
+        'car_name' => $carData->key, 
     ]);
     
     if ($serviceCenter->id) {
