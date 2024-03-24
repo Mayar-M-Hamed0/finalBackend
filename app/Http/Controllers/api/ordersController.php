@@ -7,6 +7,8 @@ use App\Http\Resources\orderResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Order;
+use App\Models\ServiceCenter;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersController extends Controller
 {
@@ -96,8 +98,12 @@ class OrdersController extends Controller
     }
 
     public function archeive($service_center_id){
+        $servicCenter= ServiceCenter::find($service_center_id);
+        $user_id = Auth::id();
+        if($servicCenter->user_id=$user_id){
         $order=order::onlyTrashed()->where('service_center_id', $service_center_id)->get();
         return orderResource::collection($order);
+        }
     }
     public function userarcheive($user_id){
         $order=order::onlyTrashed()->where('user_id', $user_id)->get();
@@ -112,13 +118,18 @@ class OrdersController extends Controller
 
     public function getOrdersByServiceCenterId($service_center_id)
     {
-        $orders = Order::where('service_center_id', $service_center_id)->get();
+        $user_id = Auth::id();
+        $servicCenter= ServiceCenter::find($service_center_id);
+       if($servicCenter->user_id=$user_id){
 
-        if ($orders->isEmpty()) {
-            return $this->apiresponse([], "No orders found for the specified service center ID", 404);
-        }
+           $orders = Order::where('service_center_id', $service_center_id)->get();
 
-        return orderResource::collection($orders);
+           if ($orders->isEmpty()) {
+               return $this->apiresponse([], "No orders found for the specified service center ID", 404);
+           }
+
+           return orderResource::collection($orders);
+       }
     }
 
 
