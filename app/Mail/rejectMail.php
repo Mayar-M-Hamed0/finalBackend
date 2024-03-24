@@ -2,20 +2,23 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Auth;
-use App\Models\order;
 
-class acceptedMail extends Mailable
+class rejectMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * Create a new message instance.
+     */
     public $order;
+
     public function __construct($id)
     {
         $this->order=Order::find($id);
@@ -27,7 +30,7 @@ class acceptedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Accepted Mail',
+            subject: 'Reject Mail',
         );
     }
 
@@ -37,7 +40,7 @@ class acceptedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.acceptedMail',
+            view: 'mail.rejectMail',
         );
     }
 
