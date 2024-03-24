@@ -22,6 +22,7 @@ class ReviewResource extends JsonResource
             "service_center_id" =>$this->service_center_id,
             "id"=>$this->id,
             "Description" =>$this->Description,
+            "rate"=>$this->rate,
         ];
     }
 }
