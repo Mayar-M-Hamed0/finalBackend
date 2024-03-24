@@ -164,4 +164,3 @@ Route::get('/reject/{id}',[mailController::class,'reject']); //->middleware("aut
 Route::get('/payment',[paymentContoller::class,'payment']);
 Route::get('/success',[paymentContoller::class,'success']);
 Route::get('/cancel',[paymentContoller::class,'cancel']);
-
