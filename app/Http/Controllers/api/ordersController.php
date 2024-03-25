@@ -100,7 +100,7 @@ class OrdersController extends Controller
     public function archeive($service_center_id){
         $servicCenter= ServiceCenter::find($service_center_id);
         $user_id = Auth::id();
-        if($servicCenter->user_id=$user_id){
+        if($servicCenter->user_id==$user_id){
         $order=order::onlyTrashed()->where('service_center_id', $service_center_id)->get();
         return orderResource::collection($order);
         }
@@ -120,7 +120,7 @@ class OrdersController extends Controller
     {
         $user_id = Auth::id();
         $servicCenter= ServiceCenter::find($service_center_id);
-       if($servicCenter->user_id=$user_id){
+       if($servicCenter->user_id==$user_id){
 
            $orders = Order::where('service_center_id', $service_center_id)->get();
 
