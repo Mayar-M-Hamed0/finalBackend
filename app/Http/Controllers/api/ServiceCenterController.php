@@ -148,6 +148,7 @@ foreach ($dataservice as $serviceData) {
 
         'service_name' => $serviceData->key,
     ]);
+    
     if ($serviceCenter->id) {
         $service->service_center_id = $serviceCenter->id;
     }
