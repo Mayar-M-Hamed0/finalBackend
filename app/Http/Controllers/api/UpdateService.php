@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\ServiceCenter;
 use App\Models\Day;
+use App\Models\Car;
+use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 class UpdateService  extends Controller
@@ -15,63 +17,88 @@ class UpdateService  extends Controller
 
     public function customUpdate(Request $request, $id)
     {
+        $serviceCenterId = $id;
         $serviceCenter = ServiceCenter::findOrFail($id);
-    
+
         $this->authorize('update', $serviceCenter);
-    
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-            'rating' => 'required|numeric',
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
             'price' => 'required',
+            'services' => 'required',
+            'cars' => 'required',
         ]);
-    
+
         if ($validator->fails()) {
             return response()->json(['message' => "Errors", 'data' => $validator->errors()->all()], 422);
         }
-    
+
         $imagePath = $serviceCenter->image;
-    
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();
             $image->move(public_path('images'), $imageName);
             $imagePath = 'images/' . $imageName;
         }
-    
+
         DB::table('service_centers')
             ->where('id', $id)
             ->update([
                 'name' => $request->name,
                 'phone' => $request->phone,
-                'rating' => $request->rating,
+
                 'description' => $request->description,
                 'image' => $imagePath,
                 'price' => $request->price,
             ]);
 
-            $data=json_decode($request->days);
-                foreach ($data as $dayData) {
-                    $day = Day::updateOrCreate([
-                        'day' => $dayData->day,
-                        'start_hour' => $dayData->startTime,
-                        'end_hour' => $dayData->endTime,
-                        'service_center_id' => $serviceCenter->id,
-                    ]);
-                   
+            
+            Day::where('service_center_id', $serviceCenter->id)->delete();
+
+            $data = json_decode($request->days);  
+            foreach ($data as $dayData) {
+                Day::updateOrCreate([
+                    'day' => $dayData->day,
+                    'start_hour' => $dayData->startTime,
+                    'end_hour' => $dayData->endTime,
+                    'service_center_id' => $serviceCenter->id,
+                ]);
+            }
+                
+                $dataservice = json_decode($request->services);
+                foreach ($dataservice as $serviceData) {
+                    DB::table('services')->updateOrInsert(
+                        ['service_name' => $serviceData->key],
+                        ['service_center_id' => $serviceCenterId]
+                    );
                 }
                 
-                $serviceCenter->services()->sync($request->input('services'));
-    $serviceCenter->cars()->sync($request->input('cars'));
-    
+                // تحديث السيارات
+                $datacars = json_decode($request->cars);
+                foreach ($datacars as $carData) {
+                    DB::table('cars')->updateOrInsert(
+                        ['car_name' => $carData->key],
+                        ['service_center_id' => $serviceCenterId]
+                    );
+                }
+                
+
+
+
+
+
+
+
         return $this->apiresponse($serviceCenter, "Service updated successfully", 200);
     }
 
 
-    
-    
+
+
 
 }

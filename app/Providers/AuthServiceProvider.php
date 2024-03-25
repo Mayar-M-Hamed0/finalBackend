@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Providers;
+
+use App\Models\Order;
 use App\Models\User;
+use App\Policies\OrderPolicy;
 use App\Policies\UserPolicy;
 use App\Policies\ServiceCenterPolicy;
 
@@ -20,7 +23,8 @@ class AuthServiceProvider extends ServiceProvider
 
 
         User::class => UserPolicy::class,
-     
+        Order::class=>OrderPolicy::class
+
 
         //
     ];
@@ -30,6 +34,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-     
+
     }
 }

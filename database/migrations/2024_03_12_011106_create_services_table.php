@@ -14,13 +14,16 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('service_name');
-            $table->string('service_details');
+            $table->unsignedBigInteger('service_center_id');
+
             $table->timestamps();
 
 
             
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('service_center_id')->references('id')->on('service_centers')->onDelete('cascade');
+
         });
     }
 

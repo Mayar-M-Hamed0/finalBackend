@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Order;
+use App\Models\ServiceCenter;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -31,6 +32,14 @@ class OrderPolicy
     {
         //
     }
+    // public function archeive(User $user,order $order): bool
+    // {
+    //     return $user->id === $order->serviceCenter->user_id;
+    // }
+    // public function getOrdersByServiceCenterId(User $user,order $order): bool
+    // {
+    //     return $user->id === $order->serviceCenter->user_id;
+    // }
 
     /**
      * Determine whether the user can update the model.

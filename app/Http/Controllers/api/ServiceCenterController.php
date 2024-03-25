@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ServiceCenter;
 use App\Models\CenterDayPivot;
 use App\Models\Day;
+use App\Models\Car;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -22,7 +24,7 @@ public function all()
 {
     $serviceCenters = ServiceCenter::with([
         'services' => function ($query) {
-            $query->select('service_name', 'service_details');
+            $query->select('service_name');
         },
         'cars' => function ($query) {
             $query->select('car_name');
@@ -39,12 +41,12 @@ public function all()
 
 public function index()
 {
-    $this->authorize('create', ServiceCenter::class);
+    // $this->authorize('create', ServiceCenter::class);
     $user_id = Auth::id();
 
     $userServices = ServiceCenter::with([
         'services' => function ($query) {
-            $query->select('service_name', 'service_details');
+            $query->select('service_name');
         },
         'cars' => function ($query) {
             $query->select('car_name');
@@ -66,13 +68,13 @@ public function index()
 
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-            'rating' => 'required|numeric',
+
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'location' => 'required|string',
             'price' => 'required',
-            'services' => 'required|array',
-            'cars' => 'required|array',
+            'services' => 'required',
+            'cars' => 'required',
             'days' => 'nullable',
             // 'days' => 'nullable|array',
             // 'days.*.start_hour' => 'required|date_format:H:i',
@@ -105,7 +107,7 @@ public function index()
             'car_name' => $request->cars,
             'name' => $request->name,
             'phone' => $request->phone,
-            'rating' => $request->rating,
+
             'description' => $request->description,
             'image' => $imagePath,
             'location' => $request->location,
@@ -121,12 +123,38 @@ public function index()
             'end_hour' => $dayData->endTime,
             'service_center_id' => $serviceCenter->id,
         ]);
-        
+
         $serviceCenter->days()->save($day);
     }
 
-    $serviceCenter->services()->sync($request->input('services'));
-    $serviceCenter->cars()->sync($request->input('cars'));
+
+    $datacars = json_decode($request->cars);
+foreach ($datacars as $carData) {
+    $car = new Car([
+        'car_name' => $carData->key,
+    ]);
+
+    if ($serviceCenter->id) {
+        $car->service_center_id = $serviceCenter->id;
+    }
+
+    $car->save();
+}
+
+
+$dataservice=json_decode($request->services);
+foreach ($dataservice as $serviceData) {
+    $service = new Service([
+
+        'service_name' => $serviceData->key,
+    ]);
+    
+    if ($serviceCenter->id) {
+        $service->service_center_id = $serviceCenter->id;
+    }
+    $service->save();
+}
+
 
         return response()->json(['message' => 'Service center created successfully', 'data' => $serviceCenter], 201);
     }
@@ -135,23 +163,18 @@ public function index()
 
 public function show($id)
 {
-    $serviceCenter = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name', 'service_details');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
-    ])->find($id);
 
-    if (!$serviceCenter) {
-        return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
-    }
+    $this->authorize('create', ServiceCenter::class);
 
-    return response()->json($serviceCenter);
+    $serviceCenter = ServiceCenter::with('services')
+    ->with('cars')
+    ->with('days')
+    ->find($id);
+if (!$serviceCenter) {
+    return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
+}
+
+return response()->json($serviceCenter);
 }
 
 
@@ -161,23 +184,18 @@ public function show($id)
     //  retturn single service for all user
     public function singleitem($id)
     {
-        $serviceCenter = ServiceCenter::with(['services' => function ($query) {
-            $query->select('service_name', 'service_details');
-        }])
-        ->with(['cars' => function ($query) {
-            $query->select('car_name');
-        }])
-        ->with('days')
 
-        ->find ($id);
 
+        $serviceCenter = ServiceCenter::with('services')
+            ->with('cars')
+            ->with('days')
+            ->find($id);
         if (!$serviceCenter) {
             return response()->json(['message' => 'مركز الخدمة غير موجود'], 404);
         }
 
         return response()->json($serviceCenter);
     }
-
 
 
 

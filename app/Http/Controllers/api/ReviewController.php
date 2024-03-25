@@ -46,7 +46,9 @@ class ReviewController extends Controller
         $validator = Validator::make($request->all(), [
             "user_id" => "required",
             "service_center_id" => "required",
-            "Description" => "required"
+            "Description" => "required",
+            "rate"=> "required"
+            
         ]);
     
         if ($validator->fails()) {
@@ -77,7 +79,8 @@ class ReviewController extends Controller
     if ($review->user_id == Auth::id()) {
         $validator = Validator::make($request->all(), [
 
-            "Description" => "required"
+            "Description" => "required",
+         //   "rate"=> "required"
         ]);
     
         if ($validator->fails()) {

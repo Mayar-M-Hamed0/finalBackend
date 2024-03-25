@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('phone');
-            $table->float('rating');
             $table->string('location');
             $table->string('description')->nullable();
             $table->string('image')->nullable();
