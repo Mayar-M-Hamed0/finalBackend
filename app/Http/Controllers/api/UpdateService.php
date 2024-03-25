@@ -17,6 +17,7 @@ class UpdateService  extends Controller
 
     public function customUpdate(Request $request, $id)
     {
+        $serviceCenterId = $id;
         $serviceCenter = ServiceCenter::findOrFail($id);
 
         $this->authorize('update', $serviceCenter);
@@ -56,53 +57,38 @@ class UpdateService  extends Controller
                 'price' => $request->price,
             ]);
 
-            $data=json_decode($request->days);
-                foreach ($data as $dayData) {
-                    $day = Day::updateOrCreate([
-                        'day' => $dayData->day,
-                        'start_hour' => $dayData->startTime,
-                        'end_hour' => $dayData->endTime,
-                        'service_center_id' => $serviceCenter->id,
-                    ]);
+            
+            Day::where('service_center_id', $serviceCenter->id)->delete();
 
+            $data = json_decode($request->days);  
+            foreach ($data as $dayData) {
+                Day::updateOrCreate([
+                    'day' => $dayData->day,
+                    'start_hour' => $dayData->startTime,
+                    'end_hour' => $dayData->endTime,
+                    'service_center_id' => $serviceCenter->id,
+                ]);
+            }
+                
+                $dataservice = json_decode($request->services);
+                foreach ($dataservice as $serviceData) {
+                    DB::table('services')->updateOrInsert(
+                        ['service_name' => $serviceData->key],
+                        ['service_center_id' => $serviceCenterId]
+                    );
                 }
-
-
+                
+                // تحديث السيارات
                 $datacars = json_decode($request->cars);
-
-// Assuming $serviceCenterId is the ID you want to match
-Car::where('service_center_id', $serviceCenter->id)->delete();
-
-// Decode JSON data from the request
-$datacars = json_decode($request->cars);
-foreach ($datacars as $carData) {
-    $car = new Car([
-        'car_name' => $carData->key,
-    ]);
+                foreach ($datacars as $carData) {
+                    DB::table('cars')->updateOrInsert(
+                        ['car_name' => $carData->key],
+                        ['service_center_id' => $serviceCenterId]
+                    );
+                }
+                
 
 
-        $car->service_center_id = $serviceCenter->id;
-
-    $car->save();
-}
-
-$dataServices = json_decode($request->services);
-
-// Assuming $serviceCenterId is the ID you want to match
-Service::where('service_center_id', $serviceCenter->id)->delete();
-
-// Decode JSON data from the request
-$dataservice=json_decode($request->services);
-foreach ($dataservice as $serviceData) {
-    $service = new Service([
-
-        'service_name' => $serviceData->key,
-    ]);
-
-        $service->service_center_id = $serviceCenter->id;
-    
-    $service->save();
-}
 
 
 

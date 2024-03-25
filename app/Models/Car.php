@@ -17,6 +17,6 @@ class Car extends Model
 
     public function serviceCenter()
     {
-        return $this->belongsTo(ServiceCenter::class);
+        return $this->belongsTo(ServiceCenter::class)->onDelete('cascade');
     }
 }
