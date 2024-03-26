@@ -17,6 +17,7 @@ class orderResource extends JsonResource
         return  [
             "id"=>$this->id,
             "name"=>$this->user->name,
+            "user_id"=>$this->user->id,
             "car_model"=>$this->car_model,
             "email"=>$this->user->email,
             "img"=>$this->user->image,
