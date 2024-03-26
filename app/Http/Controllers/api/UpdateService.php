@@ -51,16 +51,15 @@ class UpdateService  extends Controller
             ->update([
                 'name' => $request->name,
                 'phone' => $request->phone,
-
                 'description' => $request->description,
                 'image' => $imagePath,
                 'price' => $request->price,
             ]);
 
-            
+
             Day::where('service_center_id', $serviceCenter->id)->delete();
 
-            $data = json_decode($request->days);  
+            $data = json_decode($request->days);
             foreach ($data as $dayData) {
                 Day::updateOrCreate([
                     'day' => $dayData->day,
@@ -69,24 +68,28 @@ class UpdateService  extends Controller
                     'service_center_id' => $serviceCenter->id,
                 ]);
             }
-                
-                $dataservice = json_decode($request->services);
-                foreach ($dataservice as $serviceData) {
-                    DB::table('services')->updateOrInsert(
-                        ['service_name' => $serviceData->key],
-                        ['service_center_id' => $serviceCenterId]
-                    );
-                }
-                
-                // تحديث السيارات
-                $datacars = json_decode($request->cars);
-                foreach ($datacars as $carData) {
-                    DB::table('cars')->updateOrInsert(
-                        ['car_name' => $carData->key],
-                        ['service_center_id' => $serviceCenterId]
-                    );
-                }
-                
+
+
+
+DB::table('services')->where('service_center_id', $serviceCenterId)->delete();
+DB::table('cars')->where('service_center_id', $serviceCenterId)->delete();
+
+$dataservice = json_decode($request->services);
+foreach ($dataservice as $serviceData) {
+    DB::table('services')->insert([
+        'service_name' => $serviceData->key,
+        'service_center_id' => $serviceCenterId
+    ]);
+}
+
+$datacars = json_decode($request->cars);
+foreach ($datacars as $carData) {
+    DB::table('cars')->insert([
+        'car_name' => $carData->key,
+        'service_center_id' => $serviceCenterId
+    ]);
+}
+
 
 
 
