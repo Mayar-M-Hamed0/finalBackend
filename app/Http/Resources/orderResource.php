@@ -21,6 +21,7 @@ class orderResource extends JsonResource
             "car_model"=>$this->car_model,
             "email"=>$this->user->email,
             "img"=>$this->user->image,
+            "img_center"=>$this->serviceCenter->image,
             "service_center_id"=>$this->serviceCenter->id,
            'service_name' => $this->services->pluck('service_name'),
             "location"=>$this->serviceCenter->location,
