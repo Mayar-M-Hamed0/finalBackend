@@ -23,19 +23,14 @@ class ServiceCenterController extends Controller
 public function all()
 {
     $serviceCenters = ServiceCenter::with([
-        'services' => function ($query) {
-            $query->select('service_name');
-        },
-        'cars' => function ($query) {
-            $query->select('car_name');
-        },
-        'days' => function ($query) {
-            $query->select('day', 'start_hour', 'end_hour', 'service_center_id');
-        }
+        'services',
+        'cars',
+        'days'
     ])->get();
 
     return response()->json($serviceCenters);
 }
+
 
 
 
